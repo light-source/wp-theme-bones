@@ -1,0 +1,6 @@
+.idea
+/vendors/composer.lock
+/vendors/vendor
+/resources/node-js/node_modules
+/resources/node-js/yarn.lock
+/assets
