@@ -27,7 +27,7 @@ final class Html extends BASE {
 
 
 	const FILE_EXTENSION = '.twig';
-	const RELATIVE_PATH_TO_HTML = '../resources/blocks';
+	const RELATIVE_PATH_TO_HTML = '/../resources/blocks';
 
 
 	//////// static fields

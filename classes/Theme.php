@@ -18,7 +18,7 @@ final class Theme {
 	//////// constants
 
 
-	const FOLDER_ASSETS = '../assets';
+	const FOLDER_ASSETS = 'assets';
 
 	const TEMPLATE_TEST = 'templates/test.php';
 
@@ -45,9 +45,6 @@ final class Theme {
 
 		return self::$_Instance;
 	}
-
-	//////// static methods
-
 
 	//////// static methods
 
@@ -95,7 +92,6 @@ final class Theme {
 	//////// methods
 
 
-
 	public function htaccess() {
 		// fixme secure scss and twig
 	}
@@ -104,6 +100,7 @@ final class Theme {
 	 * @return void
 	 */
 	public function stylesAndScripts() {
+
 
 		if ( is_singular( [ 'page', ] ) &&
 		     self::TEMPLATE_TEST === get_page_template_slug( get_queried_object_id() ) ) {

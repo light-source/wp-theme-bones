@@ -12,4 +12,13 @@ defined( 'ABSPATH' ) ||
 die( 'Constant missing' );
 
 $home = new Home();
+
+echo '<html>';
+echo '<head>';
+wp_head();
+echo '</head>';
+echo '<body>';
 echo $home->render();
+wp_footer();
+echo '</body>';
+echo '</html>';
