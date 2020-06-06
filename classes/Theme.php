@@ -19,6 +19,7 @@ final class Theme {
 
 
 	const FOLDER_ASSETS = 'assets';
+	const FOLDER_RESOURCES = 'resources';
 
 	const TEMPLATE_TEST = 'templates/test.php';
 
@@ -92,8 +93,40 @@ final class Theme {
 	//////// methods
 
 
-	public function htaccess() {
-		// fixme secure scss and twig
+	/**
+	 * @param string $rules
+	 *
+	 * @return string
+	 */
+	public function htaccessContent( $rules ) {
+
+		$name              = __NAMESPACE__;
+		$additionalContent = "\n# BEGIN {$name}";
+
+		//// 1. disable directory browsing
+
+		$additionalContent .= "\nOptions -Indexes";
+
+		//// 2. lock non-public files
+
+		$additionalContent .= "\n<FilesMatch '\.(ftpaccess|htaccess|lock|twig|scss)$'>";
+		$additionalContent .= "\nOrder allow,deny";
+		$additionalContent .= "\nDeny from all";
+		$additionalContent .= "\n</FilesMatch>";
+
+		$additionalContent .= "\n<FilesMatch 'log.html|readme.txt|composer.json|package.json'>";
+		$additionalContent .= "\nOrder allow,deny";
+		$additionalContent .= "\nDeny from all";
+		$additionalContent .= "\n</FilesMatch>";
+
+		//// 3. protect files - theme resources (remove first slash to get correct path)
+
+		$pathToThemeResources = ltrim( wp_make_link_relative( get_stylesheet_directory_uri() . '/' . self::FOLDER_RESOURCES ), '/' );
+		$additionalContent    .= "\nRewriteRule ^{$pathToThemeResources}/(.*)$ - [F,L]";
+
+		$additionalContent .= "\n# End {$name}\n\n";
+
+		return $additionalContent . "\n" . $rules;
 	}
 
 	/**

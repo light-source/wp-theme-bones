@@ -20,6 +20,8 @@ abstract class ACTIONS {
 
 		add_action( 'wp_enqueue_scripts', [ $themeInstance, 'stylesAndScripts' ] );
 
+		add_filter( 'mod_rewrite_rules', [ $themeInstance, 'htaccessContent' ] );
+
 	}
 
 }
