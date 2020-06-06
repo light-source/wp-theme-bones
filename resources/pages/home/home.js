@@ -1,4 +1,4 @@
 import '../common';
 
-import '../../blocks/home/home';
-import '../../blocks/start/start';
+import 'home/home';
+import 'start/start';

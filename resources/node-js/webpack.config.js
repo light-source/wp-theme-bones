@@ -70,16 +70,14 @@ class Config {
          * Map file contains only file-names & lines, doesn't have original code
          * (for other cases FULL original code available in browser dev tools)
          * */
-        // todo
-        this._defaultTaskSettings.devtool = 'none'; // nosources-source-map
+        this._defaultTaskSettings.devtool = 'nosources-source-map';
 
         this._defaultTaskSettings.optimization = {
             minimize: this._isProduction,
             minimizer: [
                 // remove comments (default target files is js)
                 new TerserPlugin({
-                    // todo
-                    sourceMap: false,
+                    sourceMap: true,
                     terserOptions: {
                         output: {
                             comments: false,
@@ -88,6 +86,15 @@ class Config {
                     extractComments: false,
                 }),
             ],
+        };
+
+        this._defaultTaskSettings.resolve = {
+            /*
+            * 1. Set a correct path to a node_modules folder ( /resources/node-js/node_modules) from /resources/pages/(*)
+            * (it will be working because will recursive up by level and find node-js/node_modules instead of node_modules as default)
+            * 2. Set a correct path a blocks folder (in a way like a first), so can use 'home/home' instead of '../../blocks/home'
+            * */
+            modules: ["node-js/node_modules", "blocks"],
         };
 
     }
