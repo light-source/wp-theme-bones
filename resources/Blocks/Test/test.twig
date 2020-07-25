@@ -1,0 +1,10 @@
+<div class="test">
+
+    <h1>Test page</h1>
+
+    {% set start = start|merge({
+        class:'test__start',
+    }) %}
+    {% include 'Start/start.twig' with start only %}
+
+</div>

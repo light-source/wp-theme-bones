@@ -6,19 +6,14 @@ Template Post Type: page
 
 namespace WpThemeBones;
 
-use WpThemeBones\Pages\Home;
-
 defined( 'ABSPATH' ) ||
 die( 'Constant missing' );
 
-$home = new Home();
+use  WpThemeBones\Blocks\Test\Test;
 
-echo '<html>';
-echo '<head>';
-wp_head();
-echo '</head>';
-echo '<body>';
-echo $home->render();
-wp_footer();
-echo '</body>';
-echo '</html>';
+get_header();
+
+$test = new Test();
+echo $test->render();
+
+get_footer();

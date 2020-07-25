@@ -1,6 +1,6 @@
 <?php
 
-namespace WpThemeBones;
+namespace WpThemeBones\Std;
 
 defined( 'ABSPATH' ) ||
 die( 'Constant missing' );
@@ -18,7 +18,7 @@ use Exception;
  *
  * Singleton class
  *
- * @package WpThemeBones
+ * @package Angama\Std
  */
 final class Html extends BASE {
 
@@ -27,7 +27,7 @@ final class Html extends BASE {
 
 
 	const FILE_EXTENSION = '.twig';
-	const RELATIVE_PATH_TO_HTML = '/../resources/blocks';
+	const RELATIVE_PATH_TO_HTML = '/../Blocks';
 
 
 	//////// static fields
@@ -86,7 +86,8 @@ final class Html extends BASE {
 	 */
 	private static function _GeneralArgs( $args ) {
 
-		$generalArgs = [];
+		$generalArgs = [
+		];
 
 		return array_merge( $generalArgs, $args );
 	}
@@ -130,13 +131,31 @@ final class Html extends BASE {
 
 		$html = '';
 
-		// twig does not loaded
+		// twig didn't loaded
+
 		if ( is_null( $this->_twigEnvironment ) ) {
 			return $html;
 		}
 
-		$twigTemplate = $template . DIRECTORY_SEPARATOR . $template . self::FILE_EXTENSION;
-		$args         = self::_GeneralArgs( $args );
+		$twigTemplate = $template;
+
+		// provide a short way, so can set 'blog' instead of 'Blog/blog.twig'
+
+		if ( false === mb_strpos( $template, self::FILE_EXTENSION ) ) {
+
+			$templateNameParts = explode( '-', $template );
+			$directoryName     = [];
+
+			foreach ( $templateNameParts as $templateNamePart ) {
+				$directoryName[] = ucfirst( $templateNamePart );
+			}
+
+			$directoryName = implode( '', $directoryName );
+			$twigTemplate  = $directoryName . DIRECTORY_SEPARATOR . $template . self::FILE_EXTENSION;
+
+		}
+
+		$args = self::_GeneralArgs( $args );
 
 		try {
 			// generate exception if template does not exists OR broken
@@ -146,10 +165,14 @@ final class Html extends BASE {
 
 			$html = '';
 
-			$logMessage = 'Template is broken';
-			// // doesn't contains args, because it can contains too large html
-			$logDebugArgs = [ 'template' => $template, 'isPrint' => $isPrint, 'error' => $ex->getMessage(), ];
-
+			$logMessage   = 'Twig template is wrong';
+			$logDebugArgs = [
+				'twigTemplate' => $twigTemplate,
+				'error'        => $ex->getMessage(),
+				'file'         => $ex->getFile(),
+				'line'         => $ex->getLine(),
+				'args'         => $args,
+			];
 			$this->_log( LOG::BROKEN, $logMessage, $logDebugArgs );
 
 		}
