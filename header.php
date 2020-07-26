@@ -1,6 +1,11 @@
 <?php
 
-// TODO
-// 1. create header & footer
-// 2. update webpack to new
-// 3. test all
+namespace WpThemeBones;
+
+defined( 'ABSPATH' ) ||
+die( 'Constant missing' );
+
+use WpThemeBones\Blocks\Header\Header;
+
+$header = new Header();
+echo $header->render();

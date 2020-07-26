@@ -26,7 +26,7 @@ final class Test extends BLOCK {
 
 		parent::Resources();
 
-		if ( THEME::IsTemplate( THEME::TEMPLATE_TEST ) ) {
+		if ( ! THEME::IsTemplate( THEME::TEMPLATE_TEST ) ) {
 			return;
 		}
 

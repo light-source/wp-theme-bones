@@ -6,8 +6,7 @@ const IgnoreAssetsWebpackPlugin = require('ignore-assets-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
 const ImageminPlugin = require('imagemin-webpack-plugin').default;
 
-const INPUT_JS = '../pages';
-const INPUT_SCSS = '../pages';
+const INPUT = '../Blocks';
 const INPUT_IMAGES = '../images';
 
 const OUTPUT = __dirname + '../../../assets';
@@ -20,10 +19,10 @@ const STUB_FILE = 'index.js';
 // item : [inputFile, outputFolder ]
 
 const JS_FILES = [
-    [INPUT_JS + '/home/home.js', OUTPUT_JS + '/home/home.min.js',],
+    [INPUT + '/Test/test.js', OUTPUT_JS + '/test/test.min.js',],
 ];
 const SCSS_FILES = [
-    [INPUT_SCSS + '/home/home.scss', OUTPUT_SCSS + '/home/home.min.css',],
+    [INPUT + '/Test/test.scss', OUTPUT_SCSS + '/test/test.min.css',],
 ];
 
 /*
@@ -55,7 +54,7 @@ class Config {
             this._isProduction = 'production' === argv.mode;
             this._updateDefaultTaskSettings();
 
-            this._static();
+            // this._static();
             this._scss();
             this._js();
 
@@ -90,11 +89,10 @@ class Config {
 
         this._defaultTaskSettings.resolve = {
             /*
-            * 1. Set a correct path to a node_modules folder ( /resources/node-js/node_modules) from /resources/pages/(*)
+            * 1. Set a correct path to a node_modules folder ( /resources/node-js/node_modules) from /resources/blocks/(*)
             * (it will be working because will recursive up by level and find node-js/node_modules instead of node_modules as default)
-            * 2. Set a correct path a blocks folder (in a way like a first), so can use 'home/home' instead of '../../blocks/home'
             * */
-            modules: ["node-js/node_modules", "blocks"],
+            modules: ["node-js/node_modules",],
         };
 
     }
@@ -215,6 +213,10 @@ class Config {
                 filename: Path.basename(jsFile[1]),
                 path: Path.dirname(jsFile[1]),
             };
+            // option if already exists on the site
+            /*taskSettings.externals = {
+                jquery: 'jQuery',
+            };*/
 
             this._webpackSettings.push(taskSettings);
 
