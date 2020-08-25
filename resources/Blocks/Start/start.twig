@@ -2,5 +2,13 @@
     <div class="start__wrapper">
         <p>{{ title }}</p>
         <p class="start__text">{{ text }}</p>
+
+        {% verbatim %}
+
+        <p class="start__intro"
+           @click="onIntroClick">{{ introText }}</p>
+
+         {% endverbatim %}
+
     </div>
 </div>

@@ -87,12 +87,20 @@ class Config {
             ],
         };
 
+        let vueFile = this._isProduction ?
+            'vue/dist/vue.esm.browser.min.js' :
+            'vue/dist/vue.esm.js';
+
         this._defaultTaskSettings.resolve = {
             /*
             * 1. Set a correct path to a node_modules folder ( /resources/node-js/node_modules) from /resources/blocks/(*)
             * (it will be working because will recursive up by level and find node-js/node_modules instead of node_modules as default)
             * */
             modules: ["node-js/node_modules",],
+            alias: {
+                // force using full vue with runtime compiler (see https://ru.vuejs.org/v2/guide/installation.html)
+                vue: vueFile,
+            },
         };
 
     }
