@@ -78,6 +78,14 @@ class Blocks {
 
         elements.forEach((element, index) => {
 
+            // ignore the element if a block already init
+            // (special for vue.js, because it re-create html in a constructor)
+            // also required placed there, because it's a right way for the environment with inner blocks
+
+            if (element.getAttribute(BLOCK.attr.DATA_BLOCK)) {
+                return;
+            }
+
             let blockInstance = null;
 
             try {
@@ -106,13 +114,6 @@ class Blocks {
         records.forEach((record, index) => {
 
             record.addedNodes.forEach((element, index2) => {
-
-                // ignore the element if a block already init
-                // (special for vue.js, because it re-create html in a constructor)
-
-                if (element.getAttribute(BLOCK.attr.DATA_BLOCK)) {
-                    return;
-                }
 
                 this._blocks.forEach((block, index3) => {
 
