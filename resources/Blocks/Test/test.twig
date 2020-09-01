@@ -2,9 +2,12 @@
 
     <h1>Test page</h1>
 
-    {% set start = start|merge({
+    {% set startTypeArrow = startTypeArrow|merge({
         class:'test__start',
     }) %}
-    {% include 'Start/Type/Arrow/start.twig' with start only %}
+    {% include 'Start/Type/Arrow/start--type--arrow.twig' with startTypeArrow only %}
+
+    <h3>Test a new php render</h3>
+    {{ startTypeArrowHtml }}
 
 </div>

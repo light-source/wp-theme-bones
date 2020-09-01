@@ -11,16 +11,20 @@ use WpThemeBones\Blocks\BLOCK;
  * Class Start
  * @package WpThemeBones\Blocks\Start
  */
-final class Start extends BLOCK {
+class Start extends BLOCK {
 
 
 	//////// fields
 
 
 	/**
-	 * @var int
+	 * @var string
 	 */
-	private $_postId;
+	protected $_title;
+	/**
+	 * @var string
+	 */
+	protected $_text;
 
 
 	//////// constructor
@@ -28,11 +32,12 @@ final class Start extends BLOCK {
 
 	/**
 	 * Start constructor.
-	 *
-	 * @param int $postId
 	 */
-	public function __construct( $postId ) {
-		$this->_postId = $postId;
+	public function __construct() {
+
+		$this->_title = '';
+		$this->_text  = '';
+
 	}
 
 
@@ -44,12 +49,26 @@ final class Start extends BLOCK {
 	 */
 	public function getTemplateArgs() {
 
-		// for example get args deps on $this->_postId;
-
 		return [
-			'title' => 'Just another block',
-			'text'  => 'Description',
+			'title' => $this->_title,
+			'text'  => $this->_text,
 		];
+
+
+	}
+
+
+	//////// methods
+
+
+	/**
+	 * @return void
+	 */
+	final public function loadByTest() {
+
+		$this->_title = 'Just another block';
+		$this->_text  = 'Description';
+
 	}
 
 }

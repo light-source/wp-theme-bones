@@ -205,18 +205,30 @@ abstract class BLOCK extends BASE {
 	 */
 	final protected static function _GetTwigName() {
 
+		// getting namespace without self part, so will match to a twig path
 		// used static for child support
-		$fullClassName = static::class;
-		$shortName     = explode( '\\', $fullClassName );
-		$shortName     = $shortName[ count( $shortName ) - 1 ];
-		$nameParts     = preg_split( '/(?=[A-Z])/', $shortName, - 1, PREG_SPLIT_NO_EMPTY );
-		$newNameParts  = [];
+		$fullClassName = str_replace( __NAMESPACE__ . '\\', '', static::class );
 
-		foreach ( $nameParts as $namePart ) {
-			$newNameParts[] = strtolower( $namePart );
+		$shortName = explode( '\\', $fullClassName );
+		$shortName = $shortName[ count( $shortName ) - 1 ];
+
+		// get a twig template name
+
+		$shortNameParts    = preg_split( '/(?=[A-Z])/', $shortName, - 1, PREG_SPLIT_NO_EMPTY );
+		$newShortNameParts = [];
+		foreach ( $shortNameParts as $shortNamePart ) {
+			$newShortNameParts[] = strtolower( $shortNamePart );
 		}
+		$twigTemplateName = implode( '-', $newShortNameParts );
+		$twigTemplateName = str_replace( '_', '-', $twigTemplateName ) . Html::FILE_EXTENSION;
 
-		return implode( '-', $newNameParts );
+		// get a twig template path
+
+		$twigTemplatePath = explode( '\\', $fullClassName );
+		$twigTemplatePath = array_slice( $twigTemplatePath, 0, count( $twigTemplatePath ) - 1 );
+		$twigTemplatePath = implode( DIRECTORY_SEPARATOR, $twigTemplatePath );
+
+		return $twigTemplatePath . DIRECTORY_SEPARATOR . $twigTemplateName;
 	}
 
 	/**
@@ -228,7 +240,7 @@ abstract class BLOCK extends BASE {
 		$fullClassName = static::class;
 		$nameParts     = explode( '\\', $fullClassName );
 		if ( count( $nameParts ) > 1 ) {
-			// remove global namespace, as Angama
+			// remove global namespace
 			$nameParts = array_slice( $nameParts, 1 );
 		}
 

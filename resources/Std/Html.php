@@ -121,7 +121,7 @@ final class Html extends BASE {
 	}
 
 	/**
-	 * @param string $template Relative path (relative to Html folder) to file without extension
+	 * @param string $template Relative path (relative to the Blocks folder) to a file
 	 * @param array $args [ key => value ] Args for template
 	 * @param bool $isPrint
 	 *
@@ -137,41 +137,23 @@ final class Html extends BASE {
 			return $html;
 		}
 
-		$twigTemplate = $template;
-
-		// provide a short way, so can set 'blog' instead of 'Blog/blog.twig'
-
-		if ( false === mb_strpos( $template, self::FILE_EXTENSION ) ) {
-
-			$templateNameParts = explode( '-', $template );
-			$directoryName     = [];
-
-			foreach ( $templateNameParts as $templateNamePart ) {
-				$directoryName[] = ucfirst( $templateNamePart );
-			}
-
-			$directoryName = implode( '', $directoryName );
-			$twigTemplate  = $directoryName . DIRECTORY_SEPARATOR . $template . self::FILE_EXTENSION;
-
-		}
-
 		$args = self::_GeneralArgs( $args );
 
 		try {
 			// generate exception if template does not exists OR broken
 			// also if var does not exists (because used 'strict_variables' flag, see Twig_Environment->__construct)
-			$html .= $this->_twigEnvironment->render( $twigTemplate, $args );
+			$html .= $this->_twigEnvironment->render( $template, $args );
 		} catch ( Exception $ex ) {
 
 			$html = '';
 
-			$logMessage   = 'Twig template is wrong';
+			$logMessage   = 'Template is wrong';
 			$logDebugArgs = [
-				'twigTemplate' => $twigTemplate,
-				'error'        => $ex->getMessage(),
-				'file'         => $ex->getFile(),
-				'line'         => $ex->getLine(),
-				'args'         => $args,
+				'$template' => $template,
+				'error'     => $ex->getMessage(),
+				'file'      => $ex->getFile(),
+				'line'      => $ex->getLine(),
+				'args'      => $args,
 			];
 			$this->_log( LOG::BROKEN, $logMessage, $logDebugArgs );
 

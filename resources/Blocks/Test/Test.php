@@ -6,7 +6,7 @@ defined( 'ABSPATH' ) ||
 die( 'Constant missing' );
 
 use WpThemeBones\Blocks\BLOCK;
-use WpThemeBones\Blocks\Start\Start;
+use WpThemeBones\Blocks\Start\Type\Arrow\Start_Type_Arrow;
 use WpThemeBones\Std\THEME;
 
 /**
@@ -44,10 +44,13 @@ final class Test extends BLOCK {
 	 */
 	public function getTemplateArgs() {
 
-		$start = new Start( 0 );
+		$startTypeArrow = new Start_Type_Arrow();
+		$startTypeArrow->loadArrowTypeByTest();
 
 		return [
-			'start' => $start->getTemplateArgs(),
+			'startTypeArrow'     => $startTypeArrow->getTemplateArgs(),
+			// just for testing the new names way (locate a twig by namespace)
+			'startTypeArrowHtml' => $startTypeArrow->render(),
 		];
 	}
 
