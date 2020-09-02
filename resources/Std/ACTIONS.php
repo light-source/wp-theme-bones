@@ -24,7 +24,7 @@ abstract class ACTIONS {
 
 		//// blocks (scripts, styles, ajax)
 
-		BLOCK::Init();
+		BLOCK::InitAll();
 
 	}
 

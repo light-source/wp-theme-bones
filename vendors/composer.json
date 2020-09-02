@@ -1,7 +1,8 @@
 {
   "require": {
-    "twig/twig": "^2.12",
-    "lightsource/log": "^1.0"
+    "twig/twig": "^3.0",
+    "lightsource/log": "^1.0",
+    "lightsource/bem-blocks": "^1.0"
   },
   "autoload": {
     "psr-4": {
