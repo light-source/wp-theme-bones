@@ -2,15 +2,20 @@
 # yarn lockfile v1
 
 
+"@lightsource/bem-block@^1.0.3":
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/@lightsource/bem-block/-/bem-block-1.0.2.tgz#80acda0a3744204e341b7528f4fee08c66a635b4"
+  integrity sha512-2Jxrhi1aMRYkXxyhuJK80BPUOx2iim3cgFPMW69QWhzam+lmRQiz93Qh1jc+TTL9ua+ccQMzPq12sNsYCVotYw==
+
 "@lightsource/log@^2.0.4":
   version "2.0.4"
   resolved "https://registry.yarnpkg.com/@lightsource/log/-/log-2.0.4.tgz#7261ed8423c8a7be2341700cdb0ef1217a519cbe"
   integrity sha512-Ak5GbT7hstajudW3g+sSGdc+sirBCGvChjYy/IhkSw8faSo05IKktcRyPgtnsrU9fv+jmizv8abvaxFiRdZ14Q==
 
 "@lightsource/webpack-config@^1.0.3":
-  version "1.0.3"
-  resolved "https://registry.yarnpkg.com/@lightsource/webpack-config/-/webpack-config-1.0.3.tgz#7e5a6741926fa9cb68c81a8ded79eed53b6e45f7"
-  integrity sha512-M5Ml/e0aYJ9FrNbP9zU3sy1z/p0C1Lexg8rfaxqMWhoS0BSyBIWjvEcMVfbCNZpWyR3C/dx6bYpcnJ1j7PHk9Q==
+  version "1.0.5"
+  resolved "https://registry.yarnpkg.com/@lightsource/webpack-config/-/webpack-config-1.0.5.tgz#84f59f6e9397117ddc024aa44c5fec2e469fdb3b"
+  integrity sha512-YPPAz9L1/hivnZN8zt4nZDK784uNm62tvrikmLqsKY+sS8eUMqkSPErHTv54YE0vEDTjMuUgCImoVbEdlEaIWg==
   dependencies:
     autoprefixer "^9.7.4"
     copy-webpack-plugin "^6.1.0"

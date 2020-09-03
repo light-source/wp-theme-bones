@@ -8,6 +8,10 @@ webpackConfig.settings.SCSS_FILES = [
 webpackConfig.settings.JS_FILES = [
     ['Test/test.js', 'test/test.min.js',],
 ];
+webpackConfig.settings.defaults.alias = {
+    // force using full vue with runtime compiler (see https://ru.vuejs.org/v2/guide/installation.html)
+    vue: 'vue/dist/vue.esm.browser.min.js',
+};
 
 let config = new webpackConfig.Config();
 module.exports = config.exports.bind(config);

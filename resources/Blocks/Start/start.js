@@ -1,4 +1,4 @@
-import Block from '../block';
+import bemBlock from '../BemBlock/bem-block';
 import Vue from 'vue';
 
 const START = {
@@ -7,7 +7,7 @@ const START = {
     },
 };
 
-class Start extends Block.Class {
+class Start extends bemBlock.Class {
 
 
     //////// constructor
@@ -44,4 +44,4 @@ class Start extends Block.Class {
 
 }
 
-Block.Register('.' + START.class.ELEMENT, Start);
+bemBlock.Register('.' + START.class.ELEMENT, Start);
