@@ -10,6 +10,9 @@
     "webpack": "^4.41.6",
     "webpack-cli": "^3.3.11"
   },
+  "resolutions": {
+    "bl": "^2"
+  },
   "scripts": {
     "dev-build": "webpack --mode=development",
     "dev-watch": "webpack --mode=development --watch",
