@@ -16,10 +16,9 @@ include_once 'vendors/vendor/autoload.php';
 
 ini_set( 'error_log', __DIR__ . '/Logs/php.log' );
 
-$bemBlocksSettings = BemBlocksSettings::Instance();
-
 LOG::$PathToLogDir = __DIR__ . DIRECTORY_SEPARATOR . 'Logs';
 
+$bemBlocksSettings = BemBlocksSettings::Instance();
 $bemBlocksSettings->setBlocksDirPath( __DIR__ . '/resources/Blocks' );
 $bemBlocksSettings->setBlocksDirNamespace( 'WpThemeBones\Blocks' );
 $bemBlocksSettings->setErrorCallback( function ( $errors ) {

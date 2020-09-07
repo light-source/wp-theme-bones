@@ -1,17 +1,15 @@
 <?php
 
-namespace WpThemeBones\Blocks;
+namespace WpThemeBones\Std;
 
 defined( 'ABSPATH' ) ||
 die( 'Constant missing' );
 
-use WpThemeBones\Std\THEME;
-
 /**
- * Class BLOCK
- * @package WpThemeBones\Blocks
+ * Class CONTROLLER
+ * @package WpThemeBones\Std
  */
-abstract class BLOCK extends \LightSource\BemBlocks\BLOCK {
+abstract class CONTROLLER extends \LightSource\BemBlocks\CONTROLLER {
 
 
 	//////// constants

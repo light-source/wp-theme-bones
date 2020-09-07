@@ -9,11 +9,12 @@ namespace WpThemeBones;
 defined( 'ABSPATH' ) ||
 die( 'Constant missing' );
 
-use  WpThemeBones\Blocks\Test\Test;
+use WpThemeBones\Blocks\Test\Test_C;
 
 get_header();
 
-$test = new Test();
-echo $test->render();
+$testC = new Test_C();
+$testC->getModel()->loadByTest();
+$testC->render( [], true );
 
 get_footer();

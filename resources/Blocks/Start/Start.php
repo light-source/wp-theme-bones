@@ -5,13 +5,13 @@ namespace WpThemeBones\Blocks\Start;
 defined( 'ABSPATH' ) ||
 die( 'Constant missing' );
 
-use WpThemeBones\Blocks\BLOCK;
+use LightSource\BemBlocks\MODEL;
 
 /**
  * Class Start
  * @package WpThemeBones\Blocks\Start
  */
-class Start extends BLOCK {
+class Start extends MODEL {
 
 
 	//////// fields
@@ -41,13 +41,13 @@ class Start extends BLOCK {
 	}
 
 
-	//////// override extends methods
+	//////// implementation extend methods
 
 
 	/**
 	 * @return array
 	 */
-	public function getTemplateArgs() {
+	public function getArgs() {
 
 		return [
 			'title' => $this->_title,

@@ -5,7 +5,7 @@ namespace WpThemeBones\Std;
 defined( 'ABSPATH' ) ||
 die( 'Constant missing' );
 
-use WpThemeBones\Blocks\BLOCK;
+use WpThemeBones\Blocks\CONTROLLER;
 
 /**
  * Class ACTIONS
@@ -24,7 +24,7 @@ abstract class ACTIONS {
 
 		//// blocks (scripts, styles, ajax)
 
-		BLOCK::InitAll();
+		CONTROLLER::InitAll();
 
 	}
 

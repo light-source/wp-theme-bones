@@ -5,7 +5,8 @@ namespace WpThemeBones;
 defined( 'ABSPATH' ) ||
 die( 'Constant missing' );
 
-use WpThemeBones\Blocks\Footer\Footer;
+use WpThemeBones\Blocks\Footer\Footer_C;
 
-$footer = new Footer();
-echo $footer->render();
+$footerC = new Footer_C();
+$footerC->getModel()->loadByDefault();
+$footerC->render( [], true );

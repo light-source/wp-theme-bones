@@ -40,13 +40,13 @@ final class Start_Type_Arrow extends Start {
 	/**
 	 * @return array
 	 */
-	public function getTemplateArgs() {
+	public function getArgs() {
 
 		$args = [
 			'footer' => $this->_footer,
 		];
 
-		return array_merge( parent::getTemplateArgs(), $args );
+		return array_merge( parent::getArgs(), $args );
 	}
 
 

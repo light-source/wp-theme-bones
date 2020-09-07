@@ -2,41 +2,98 @@
 
 namespace WpThemeBones\Blocks\Header;
 
+
 defined( 'ABSPATH' ) ||
 die( 'Constant missing' );
 
-use WpThemeBones\Blocks\BLOCK;
+use LightSource\BemBlocks\MODEL;
 
 /**
  * Class Header
  * @package WpThemeBones\Blocks\Header
  */
-final class Header extends BLOCK {
+final class Header extends MODEL {
 
 
-	//////// override extends methods
+	//////// fields
+
+
+	/**
+	 * @var string
+	 */
+	private $_htmlAttrs;
+	/**
+	 * @var string
+	 */
+	private $_charset;
+	/**
+	 * @var string
+	 */
+	private $_wpHeader;
+	/**
+	 * @var string
+	 */
+	private $_bodyClasses;
+	/**
+	 * @var string
+	 */
+	private $_wpBodyOpen;
+
+
+	//////// construct
+
+
+	/**
+	 * Header constructor.
+	 */
+	public function __construct() {
+
+		$this->_htmlAttrs   = '';
+		$this->_charset     = '';
+		$this->_wpHeader    = '';
+		$this->_bodyClasses = '';
+		$this->_wpBodyOpen  = '';
+
+	}
+
+
+	//////// implementation abstract methods
 
 
 	/**
 	 * @return array
 	 */
-	public function getTemplateArgs() {
+	public function getArgs() {
+		return [
+			'htmlAttrs'   => $this->_htmlAttrs,
+			'charset'     => $this->_charset,
+			'wpHeader'    => $this->_wpHeader,
+			'bodyClasses' => $this->_bodyClasses,
+			'wpBodyOpen'  => $this->_wpBodyOpen,
+		];
+	}
+
+
+	//////// methods
+
+
+	/**
+	 * @return void
+	 */
+	public function loadByDefault() {
 
 		ob_start();
 		wp_head();
-		$wpHead = ob_get_clean();
+		$this->_wpHeader = ob_get_clean();
 
 		ob_start();
 		wp_body_open();
-		$wpBodyOpen = ob_get_clean();
+		$this->_wpBodyOpen = ob_get_clean();
 
-		return [
-			'htmlAttrs'   => get_language_attributes(),
-			'charset'     => get_bloginfo( 'charset' ),
-			'wpHeader'    => $wpHead,
-			'bodyClasses' => get_body_class(),
-			'wpBodyOpen'  => $wpBodyOpen,
-		];
+		$this->_htmlAttrs   = get_language_attributes();
+		$this->_charset     = get_bloginfo( 'charset' );
+		$this->_bodyClasses = get_body_class();
+
 	}
 
 }

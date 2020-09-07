@@ -5,62 +5,59 @@ namespace WpThemeBones\Blocks\Test;
 defined( 'ABSPATH' ) ||
 die( 'Constant missing' );
 
-use WpThemeBones\Blocks\BLOCK;
+use LightSource\BemBlocks\MODEL;
 use WpThemeBones\Blocks\Start\Type\Arrow\Start_Type_Arrow;
-use WpThemeBones\Std\THEME;
 
 /**
  * Class Test
  * @package WpThemeBones\Blocks\Test
  */
-final class Test extends BLOCK {
+final class Test extends MODEL {
 
 
-	//////// static methods
+	//////// fields
 
 
 	/**
-	 * @return void
+	 * @var Start_Type_Arrow
 	 */
-	public static function Resources() {
+	private $_startTypeArrow;
 
-		parent::Resources();
 
-		if ( ! THEME::IsTemplate( THEME::TEMPLATE_TEST ) ) {
-			return;
-		}
+	//////// construct
 
-		wp_enqueue_style( 'test-css', Theme::DistPagesUrl( 'test/test.min.css' ), [], '1.0.0' );
-		wp_enqueue_script( 'test-js', Theme::DistPagesUrl( 'test/test.min.js' ), [ 'jquery', ], '1.0.0' );
+
+	/**
+	 * Test constructor.
+	 */
+	public function __construct() {
+
+		$this->_startTypeArrow = new Start_Type_Arrow();
 
 	}
 
 
-	//////// override extends methods
+	//////// implementation abstract methods
 
 
 	/**
 	 * @return array
 	 */
-	public function getTemplateArgs() {
-
-		$startTypeArrow = new Start_Type_Arrow();
-		$startTypeArrow->loadArrowTypeByTest();
-
+	public function getArgs() {
 		return [
-			'startTypeArrow'     => $startTypeArrow->getTemplateArgs(),
-			// just for testing the new names way (locate a twig by namespace)
-			'startTypeArrowHtml' => $startTypeArrow->render(),
+			'startTypeArrow' => $this->_startTypeArrow->getArgs(),
 		];
 	}
 
-	//////// getters
+
+	//////// methods
+
 
 	/**
-	 * @return bool
+	 * @return void
 	 */
-	protected static function _IsHaveResources() {
-		return true;
+	public function loadByTest() {
+		$this->_startTypeArrow->loadArrowTypeByTest();
 	}
 
 }
