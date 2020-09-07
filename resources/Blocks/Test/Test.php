@@ -6,7 +6,7 @@ defined( 'ABSPATH' ) ||
 die( 'Constant missing' );
 
 use LightSource\BemBlocks\MODEL;
-use WpThemeBones\Blocks\Start\Type\Arrow\Start_Type_Arrow;
+use WpThemeBones\Blocks\Start\Type\Arrow\Start_Type_Arrow_C;
 
 /**
  * Class Test
@@ -19,9 +19,9 @@ final class Test extends MODEL {
 
 
 	/**
-	 * @var Start_Type_Arrow
+	 * @var Start_Type_Arrow_C
 	 */
-	private $_startTypeArrow;
+	private $_startTypeArrowC;
 
 
 	//////// construct
@@ -32,7 +32,7 @@ final class Test extends MODEL {
 	 */
 	public function __construct() {
 
-		$this->_startTypeArrow = new Start_Type_Arrow();
+		$this->_startTypeArrowC = new Start_Type_Arrow_C();
 
 	}
 
@@ -45,7 +45,7 @@ final class Test extends MODEL {
 	 */
 	public function getArgs() {
 		return [
-			'startTypeArrow' => $this->_startTypeArrow->getArgs(),
+			'startTypeArrow' => $this->_startTypeArrowC->getTemplateArgs(),
 		];
 	}
 
@@ -57,7 +57,7 @@ final class Test extends MODEL {
 	 * @return void
 	 */
 	public function loadByTest() {
-		$this->_startTypeArrow->loadArrowTypeByTest();
+		$this->_startTypeArrowC->getModel()->loadArrowTypeByTest();
 	}
 
 }
