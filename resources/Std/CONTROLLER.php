@@ -52,8 +52,8 @@ abstract class CONTROLLER extends \LightSource\BemBlocks\CONTROLLER {
 		if ( static::_IsSupportAjax() ) {
 
 			$currentBlockName = static::GetAjaxName();
-			add_action( "wp_ajax_" . self::AJAX_PREFIX . $currentBlockName, [ static::class, 'AjaxCallback', ] );
-			add_action( "wp_ajax_nopriv_" . self::AJAX_PREFIX . $currentBlockName, [
+			add_action( "wp_ajax_" . $currentBlockName, [ static::class, 'AjaxCallback', ] );
+			add_action( "wp_ajax_nopriv_" . $currentBlockName, [
 				static::class,
 				'AjaxCallback',
 			] );
