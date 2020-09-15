@@ -16,6 +16,7 @@ abstract class THEME {
 
 
 	const DIST_PAGES_FOLDER = '/assets/pages';
+	const RESOURCES_FOLDER = 'resources';
 	const NAME = 'WpThemeBones';
 	const _NAME = 'wp_theme_bones';
 	const TEMPLATE_TEST = 'templates/test.php';
@@ -71,6 +72,14 @@ abstract class THEME {
 		$addingContent .= "\nOrder allow,deny";
 		$addingContent .= "\nDeny from all";
 		$addingContent .= "\n</FilesMatch>";
+
+		//// 3. protect theme resources
+
+		$addingContent        .= "\n<IfModule mod_rewrite.c>";
+		$addingContent        .= "\nRewriteEngine On";
+		$pathToThemeResources = ltrim( wp_make_link_relative( get_stylesheet_directory_uri() . '/' . self::RESOURCES_FOLDER ), '/' );
+		$addingContent        .= "\nRewriteRule ^{$pathToThemeResources}/(.*)$ - [F,L]";
+		$addingContent        .= "\n</IfModule>";
 
 		$addingContent .= "\n# End " . self::NAME . "\n\n";
 
