@@ -21,23 +21,23 @@ final class Header extends MODEL {
 	/**
 	 * @var string
 	 */
-	private $_htmlAttrs;
+	protected $_htmlAttrs;
 	/**
 	 * @var string
 	 */
-	private $_charset;
+	protected $_charset;
 	/**
 	 * @var string
 	 */
-	private $_wpHeader;
+	protected $_wpHeader;
 	/**
 	 * @var string
 	 */
-	private $_bodyClasses;
+	protected $_bodyClasses;
 	/**
 	 * @var string
 	 */
-	private $_wpBodyOpen;
+	protected $_wpBodyOpen;
 
 
 	//////// construct
@@ -47,31 +47,9 @@ final class Header extends MODEL {
 	 * Header constructor.
 	 */
 	public function __construct() {
-
-		$this->_htmlAttrs   = '';
-		$this->_charset     = '';
-		$this->_wpHeader    = '';
-		$this->_bodyClasses = '';
-		$this->_wpBodyOpen  = '';
-
+		parent::__construct();
 	}
 
-
-	//////// implementation abstract methods
-
-
-	/**
-	 * @return array
-	 */
-	public function getArgs() {
-		return [
-			'htmlAttrs'   => $this->_htmlAttrs,
-			'charset'     => $this->_charset,
-			'wpHeader'    => $this->_wpHeader,
-			'bodyClasses' => $this->_bodyClasses,
-			'wpBodyOpen'  => $this->_wpBodyOpen,
-		];
-	}
 
 
 	//////// methods

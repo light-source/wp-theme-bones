@@ -20,7 +20,7 @@ final class Footer extends MODEL {
 	/**
 	 * @var string
 	 */
-	private $_wpFooter;
+	protected $_wpFooter;
 
 
 	//////// construct
@@ -30,20 +30,7 @@ final class Footer extends MODEL {
 	 * Footer constructor.
 	 */
 	public function __construct() {
-		$this->_wpFooter = '';
-	}
-
-
-	//////// implementation abstract methods
-
-
-	/**
-	 * @return array
-	 */
-	public function getArgs() {
-		return [
-			'wpFooter' => $this->_wpFooter,
-		];
+		parent::__construct();
 	}
 
 

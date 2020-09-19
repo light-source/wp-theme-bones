@@ -16,7 +16,7 @@ final class Start_Type_Arrow extends Start {
 	/**
 	 * @var string
 	 */
-	private $_footer;
+	protected $_footer;
 
 
 	//////// constructor
@@ -26,27 +26,7 @@ final class Start_Type_Arrow extends Start {
 	 * Start_Type_Arrow constructor.
 	 */
 	public function __construct() {
-
 		parent::__construct();
-
-		$this->_footer = '';
-
-	}
-
-
-	//////// override extends methods
-
-
-	/**
-	 * @return array
-	 */
-	public function getArgs() {
-
-		$args = [
-			'footer' => $this->_footer,
-		];
-
-		return array_merge( parent::getArgs(), $args );
 	}
 
 

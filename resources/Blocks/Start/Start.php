@@ -34,27 +34,7 @@ class Start extends MODEL {
 	 * Start constructor.
 	 */
 	public function __construct() {
-
-		$this->_title = '';
-		$this->_text  = '';
-
-	}
-
-
-	//////// implementation extend methods
-
-
-	/**
-	 * @return array
-	 */
-	public function getArgs() {
-
-		return [
-			'title' => $this->_title,
-			'text'  => $this->_text,
-		];
-
-
+		parent::__construct();
 	}
 
 
@@ -66,7 +46,7 @@ class Start extends MODEL {
 	 */
 	final public function loadByTest() {
 
-		$this->_title = 'Just another block';
+		$this->_title = 'Just another new block';
 		$this->_text  = 'Description';
 
 	}

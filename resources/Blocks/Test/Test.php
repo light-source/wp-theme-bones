@@ -21,7 +21,7 @@ final class Test extends MODEL {
 	/**
 	 * @var Start_Type_Arrow_C
 	 */
-	private $_startTypeArrowC;
+	protected $_startTypeArrow;
 
 
 	//////// construct
@@ -32,21 +32,10 @@ final class Test extends MODEL {
 	 */
 	public function __construct() {
 
-		$this->_startTypeArrowC = new Start_Type_Arrow_C();
+		parent::__construct();
 
-	}
+		$this->_startTypeArrow = new Start_Type_Arrow_C();
 
-
-	//////// implementation abstract methods
-
-
-	/**
-	 * @return array
-	 */
-	public function getArgs() {
-		return [
-			'startTypeArrow' => $this->_startTypeArrowC->getTemplateArgs(),
-		];
 	}
 
 
@@ -57,7 +46,7 @@ final class Test extends MODEL {
 	 * @return void
 	 */
 	public function loadByTest() {
-		$this->_startTypeArrowC->getModel()->loadArrowTypeByTest();
+		$this->_startTypeArrow->getModel()->loadArrowTypeByTest();
 	}
 
 }
