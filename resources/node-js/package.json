@@ -6,7 +6,7 @@
   "dependencies": {
     "@lightsource/bem-block": "^1.0.2",
     "@lightsource/log": "^2.0.4",
-    "@lightsource/webpack-config": "^1.0.3",
+    "@lightsource/webpack-config": "^1.1.0",
     "vue": "^2.6.12",
     "webpack": "^4.41.6",
     "webpack-cli": "^3.3.11"

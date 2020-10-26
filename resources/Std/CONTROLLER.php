@@ -15,7 +15,16 @@ abstract class CONTROLLER extends \LightSource\BemBlocks\CONTROLLER {
 	//////// constants
 
 
-	const AJAX_PREFIX = THEME::_NAME . '_block_';
+	const AJAX_PREFIX = Theme::_NAME . '_block__';
+
+
+	//////// static fields
+
+
+	/**
+	 * @var array
+	 */
+	private static $_BlocksWithResources = [];
 
 
 	//////// static methods
@@ -27,8 +36,6 @@ abstract class CONTROLLER extends \LightSource\BemBlocks\CONTROLLER {
 	 * @return void
 	 */
 	public static function Resources() {
-
-
 	}
 
 	/**
@@ -36,6 +43,13 @@ abstract class CONTROLLER extends \LightSource\BemBlocks\CONTROLLER {
 	 */
 	public static function AjaxCallback() {
 
+	}
+
+	/**
+	 * @return array
+	 */
+	final public static function GetBlocksWithResources() {
+		return self::$_BlocksWithResources;
 	}
 
 
@@ -51,18 +65,30 @@ abstract class CONTROLLER extends \LightSource\BemBlocks\CONTROLLER {
 
 		if ( static::_IsSupportAjax() ) {
 
-			$currentBlockName = static::GetAjaxName();
-			add_action( "wp_ajax_" . $currentBlockName, [ static::class, 'AjaxCallback', ] );
-			add_action( "wp_ajax_nopriv_" . $currentBlockName, [
+			$ajaxName = static::GetAjaxName();
+			add_action( "wp_ajax_" . $ajaxName, [ static::class, 'AjaxCallback', ] );
+			add_action( "wp_ajax_nopriv_" . $ajaxName, [
 				static::class,
 				'AjaxCallback',
 			] );
 
 		}
 
-		if ( static::_IsHaveResources() ) {
-			add_action( 'wp_enqueue_scripts', [ static::class, 'Resources', ] );
-		}
+		//  using a 'wp' hook, because Conditional Tags (is_page, etc..) don't available before
+
+		add_action( 'wp', function () {
+
+			// static for child support
+
+			if ( ! static::_IsHaveResources() ) {
+				return;
+			}
+
+			// static for child support
+			self::$_BlocksWithResources[] = static::class;
+			add_action( 'wp_enqueue_scripts', [ static::class, 'Resources' ] );
+
+		} );
 
 	}
 
