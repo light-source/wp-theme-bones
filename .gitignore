@@ -1,5 +1,3 @@
 .idea
-/vendors/composer.lock
 /vendors/vendor
-/resources/node-js/node_modules
-/assets
+node-js/node_modules

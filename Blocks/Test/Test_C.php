@@ -36,12 +36,8 @@ final class Test_C extends CONTROLLER {
 
 		parent::Resources();
 
-		if ( ! THEME::IsTemplate( THEME::TEMPLATE_TEST ) ) {
-			return;
-		}
-
-		wp_enqueue_style( 'test-css', Theme::DistPagesUrl( 'test/test.min.css' ), [], '1.0.0' );
-		wp_enqueue_script( 'test-js', Theme::DistPagesUrl( 'test/test.min.js' ), [ 'jquery', ], '1.0.0' );
+		wp_enqueue_style( self::GetName(), Theme::DistPagesUrl( 'test/test.min.css' ), [], null );
+		wp_enqueue_script( self::GetName(), Theme::DistPagesUrl( 'test/test.min.js' ), [ 'jquery', ], null );
 
 	}
 
@@ -64,7 +60,7 @@ final class Test_C extends CONTROLLER {
 	 * @return bool
 	 */
 	protected static function _IsHaveResources() {
-		return true;
+		return THEME::IsTemplate( THEME::TEMPLATE_TEST );
 	}
 
 }

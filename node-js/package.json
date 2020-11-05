@@ -15,10 +15,10 @@
     "bl": "^2"
   },
   "scripts": {
-    "dev-build": "webpack --mode=development",
-    "dev-watch": "webpack --mode=development --watch",
-    "prod-build": "webpack --mode=production",
-    "prod-watch": "webpack --mode=production --watch"
+    "build-dev": "webpack --mode=development",
+    "build-prod": "webpack --mode=production",
+    "watch-dev": "webpack --mode=development --watch",
+    "watch-prod": "webpack --mode=production --watch"
   },
   "browserslist": [
     "last 2 versions",

@@ -5,8 +5,6 @@ namespace WpThemeBones\Std;
 defined( 'ABSPATH' ) ||
 die( 'Constant missing' );
 
-use WpThemeBones\Blocks\CONTROLLER;
-
 /**
  * Class ACTIONS
  * @package Angama\Std
