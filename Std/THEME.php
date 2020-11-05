@@ -88,4 +88,15 @@ abstract class THEME {
 		return $rules;
 	}
 
+	/**
+	 * @return void
+	 */
+	public static function SetupSupports() {
+
+		add_theme_support( 'post-thumbnails' );
+		add_theme_support( 'automatic-feed-links' );
+		add_theme_support( 'menus' );
+
+	}
+
 }
