@@ -12,10 +12,10 @@
   resolved "https://registry.yarnpkg.com/@lightsource/log/-/log-2.0.4.tgz#7261ed8423c8a7be2341700cdb0ef1217a519cbe"
   integrity sha512-Ak5GbT7hstajudW3g+sSGdc+sirBCGvChjYy/IhkSw8faSo05IKktcRyPgtnsrU9fv+jmizv8abvaxFiRdZ14Q==
 
-"@lightsource/webpack-config@^1.1.0":
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/@lightsource/webpack-config/-/webpack-config-1.1.0.tgz#b21f361c37110e38b2ca03364dfb19cc0741f173"
-  integrity sha512-1P7sPPeNwCWcicxiJmPDSAHLAr53Whf5+kJ15OIObGhFCWlpY8YWMC+/vB6NCeNKuutj1weOc9YQefEIhcjeYg==
+"@lightsource/webpack-config@^1.1.4":
+  version "1.1.4"
+  resolved "https://registry.yarnpkg.com/@lightsource/webpack-config/-/webpack-config-1.1.4.tgz#e92c509099081e62a41075f708c779c4afe48057"
+  integrity sha512-PKsKNOI2fvFiIXxu9uV5PPgqtwB9QIkQ9GJilvN26M/+iHbaKKmMMcWkqnZex79L20jVJujuOR0MdjD00F5zOg==
   dependencies:
     autoprefixer "^9.7.4"
     copy-webpack-plugin "^6.1.0"

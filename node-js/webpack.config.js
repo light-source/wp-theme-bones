@@ -1,7 +1,7 @@
 const webpackConfig = require('@lightsource/webpack-config');
 
 webpackConfig.settings.INPUT_DIR = __dirname + '/../Blocks';
-webpackConfig.settings.OUTPUT_DIR = __dirname + '/../../assets/pages';
+webpackConfig.settings.OUTPUT_DIR = __dirname + '/../assets/pages';
 webpackConfig.settings.SCSS_FILES = [
     ['Test/test.scss', 'test/test.min.css',],
 ];
