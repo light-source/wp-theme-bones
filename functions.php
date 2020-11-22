@@ -8,7 +8,7 @@ die( 'Constant missing' );
 use LightSource\BemBlocks\Settings as BemBlocksSettings;
 use LightSource\Log\LOG;
 
-use WpThemeBones\Std\ACTIONS;
+use WpThemeBones\Classes\ACTIONS;
 
 include_once 'vendors/vendor/autoload.php';
 

@@ -5,7 +5,7 @@ namespace WpThemeBones\Blocks\Header;
 defined( 'ABSPATH' ) ||
 die( 'Constant missing' );
 
-use WpThemeBones\Std\CONTROLLER;
+use WpThemeBones\Classes\CONTROLLER;
 
 /**
  * Class Header_C

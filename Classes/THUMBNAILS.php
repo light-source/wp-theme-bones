@@ -1,13 +1,13 @@
 <?php
 
-namespace WpThemeBones\Std;
+namespace WpThemeBones\Classes;
 
 defined( 'ABSPATH' ) ||
-die( 'Constant missing' );
+die( 'Constant is missing' );
 
 /**
  * Class THUMBNAILS
- * @package WpThemeBones\Std
+ * @package WpThemeBones\Classes
  */
 abstract class THUMBNAILS {
 
@@ -57,6 +57,21 @@ abstract class THUMBNAILS {
 		update_option( 'large_size_w', 1920 );
 		update_option( 'large_size_h', 0 );
 
+	}
+
+	/**
+	 * @param int $threshold
+	 * @param array $imageSizes
+	 * @param string $file
+	 * @param int $attachmentId
+	 *
+	 * @return false
+	 */
+	public static function ImageSizeThreshold( $threshold, $imageSizes, $file, $attachmentId ) {
+
+		$threshold = false; // don't need
+
+		return $threshold;
 	}
 
 }

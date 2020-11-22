@@ -1,9 +1,12 @@
 <?php
 
-namespace WpThemeBones\Std;
+namespace WpThemeBones\Classes;
 
 defined( 'ABSPATH' ) ||
 die( 'Constant missing' );
+
+use LightSource\Log\LOG;
+use WP_Error;
 
 /**
  * Class THEME
@@ -96,6 +99,21 @@ abstract class THEME {
 		add_theme_support( 'post-thumbnails' );
 		add_theme_support( 'automatic-feed-links' );
 		add_theme_support( 'menus' );
+
+	}
+
+	/**
+	 * @param WP_Error $wpError
+	 *
+	 * @return void
+	 */
+	public static function OnMailFail( $wpError ) {
+
+		$logMessage   = 'Fail send a mail';
+		$logDebugArgs = [
+			'$wpError' => $wpError,
+		];
+		LOG::Write( LOG::WARNING, $logMessage, $logDebugArgs );
 
 	}
 

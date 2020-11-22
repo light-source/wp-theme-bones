@@ -5,7 +5,7 @@ namespace WpThemeBones\Blocks\Start\Type\Arrow;
 defined( 'ABSPATH' ) ||
 die( 'Constant missing' );
 
-use WpThemeBones\Std\CONTROLLER;
+use WpThemeBones\Classes\CONTROLLER;
 
 /**
  * Class Start_Type_Arrow_C

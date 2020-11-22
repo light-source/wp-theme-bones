@@ -5,7 +5,7 @@ namespace WpThemeBones\Blocks\Start;
 defined( 'ABSPATH' ) ||
 die( 'Constant missing' );
 
-use WpThemeBones\Std\CONTROLLER;
+use WpThemeBones\Classes\CONTROLLER;
 
 /**
  * Class Start_C

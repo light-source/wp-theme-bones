@@ -1,6 +1,6 @@
 <?php
 
-namespace WpThemeBones\Std;
+namespace WpThemeBones\Classes;
 
 defined( 'ABSPATH' ) ||
 die( 'Constant missing' );

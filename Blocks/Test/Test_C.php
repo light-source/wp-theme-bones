@@ -5,8 +5,8 @@ namespace WpThemeBones\Blocks\Test;
 defined( 'ABSPATH' ) ||
 die( 'Constant missing' );
 
-use WpThemeBones\Std\CONTROLLER;
-use WpThemeBones\Std\THEME;
+use WpThemeBones\Classes\CONTROLLER;
+use WpThemeBones\Classes\THEME;
 
 /**
  * Class Test_C
@@ -25,20 +25,14 @@ final class Test_C extends CONTROLLER {
 		parent::__construct( new Test() );
 	}
 
-
 	//////// static methods
 
 
 	/**
-	 * @return void
+	 * @return bool
 	 */
-	public static function Resources() {
-
-		parent::Resources();
-
-		wp_enqueue_style( self::GetName(), Theme::DistPagesUrl( 'test/test.min.css' ), [], null );
-		wp_enqueue_script( self::GetName(), Theme::DistPagesUrl( 'test/test.min.js' ), [ 'jquery', ], null );
-
+	protected static function _IsHaveResources() {
+		return THEME::IsTemplate( THEME::TEMPLATE_TEST );
 	}
 
 
@@ -50,17 +44,6 @@ final class Test_C extends CONTROLLER {
 	 */
 	public function getModel() {
 		return parent::getModel();
-	}
-
-
-	//////// getters
-
-
-	/**
-	 * @return bool
-	 */
-	protected static function _IsHaveResources() {
-		return THEME::IsTemplate( THEME::TEMPLATE_TEST );
 	}
 
 }
