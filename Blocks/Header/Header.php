@@ -2,7 +2,6 @@
 
 namespace WpThemeBones\Blocks\Header;
 
-
 defined( 'ABSPATH' ) ||
 die( 'Constant missing' );
 

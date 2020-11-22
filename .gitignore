@@ -1,3 +1,5 @@
 .idea
-/vendors/vendor
 node-js/node_modules
+vendors/vendor
+vendors/vendor-bin
+Vendors

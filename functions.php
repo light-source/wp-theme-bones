@@ -10,13 +10,20 @@ use LightSource\Log\LOG;
 
 use WpThemeBones\Classes\ACTIONS;
 
-include_once 'vendors/vendor/autoload.php';
+include_once __DIR__ . '/vendors/vendor/autoload.php';
 
 //// settings
 
-ini_set( 'error_log', __DIR__ . '/Logs/php.log' );
+const LOGS_FOLDER = __DIR__ . '/Logs';
 
-LOG::$PathToLogDir = __DIR__ . '/Logs';
+if ( ! is_dir( LOGS_FOLDER ) ) {
+	mkdir( LOGS_FOLDER );
+}
+
+ini_set( 'error_log', LOGS_FOLDER . '/php.log' );
+
+LOG::$PathToLogDir = LOGS_FOLDER;
+
 
 $bemBlocksSettings = BemBlocksSettings::Instance();
 $bemBlocksSettings->setBlocksDirPath( __DIR__ . '/Blocks' );

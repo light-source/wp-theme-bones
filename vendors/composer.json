@@ -8,5 +8,8 @@
     "psr-4": {
       "WpThemeBones\\": ".."
     }
+  },
+  "require-dev": {
+    "bamarni/composer-bin-plugin": "^1.4"
   }
 }
