@@ -5,12 +5,12 @@ namespace WpThemeBones;
 defined( 'ABSPATH' ) ||
 die( 'Constant missing' );
 
-use LightSource\BemBlocks\Settings as BemBlocksSettings;
-use LightSource\Log\LOG;
+use WpThemeBones\Vendors\LightSource\BemBlocks\Settings as BemBlocksSettings;
+use WpThemeBones\Vendors\LightSource\Log\LOG;
 
 use WpThemeBones\Classes\ACTIONS;
 
-include_once __DIR__ . '/vendors/vendor/autoload.php';
+include_once __DIR__ . '/Vendors/vendor/autoload.php';
 
 //// settings
 

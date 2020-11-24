@@ -2,17 +2,18 @@
 
 use Isolated\Symfony\Component\Finder\Finder;
 
-// in the root folder
-// cd vendors; composer update; cd ..; vendors/vendor/bin/php-scoper add-prefix --output-dir Vendors; cd Vendors; composer dump-autoload
+$pathToOriginVendors = __DIR__ . '/../vendors';
+$namespace           = 'WpThemeBones';
+$vendorNamespace     = "{$namespace}\\Vendors";
 
 return [
 	// self namespace should be defined, because otherwise will have changed in composer files and will break 'dump-autoload'
 	'whitelist' => [
-		'WpThemeBones\*',
+		"{$namespace}\*",
 	],
-	'prefix'    => 'WpThemeBones\\Vendors',
+	'prefix'    => $vendorNamespace,
 	'finders'   => [
-		Finder::create()->files()->in( 'vendors' )
+		Finder::create()->files()->in( $pathToOriginVendors )
 		      ->exclude( [
 			      'vendor-bin',
 		      ] ),

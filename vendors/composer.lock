@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "3885e4ae1554af3b67c9e9d6cdf4d7a2",
+    "content-hash": "4d900c56d6e262ec8f89d8c63d1f44a8",
     "packages": [
         {
             "name": "lightsource/bem-blocks",

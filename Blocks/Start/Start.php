@@ -5,7 +5,7 @@ namespace WpThemeBones\Blocks\Start;
 defined( 'ABSPATH' ) ||
 die( 'Constant missing' );
 
-use LightSource\BemBlocks\MODEL;
+use WpThemeBones\Vendors\LightSource\BemBlocks\MODEL;
 
 /**
  * Class Start

@@ -5,7 +5,7 @@ namespace WpThemeBones\Classes;
 defined( 'ABSPATH' ) ||
 die( 'Constant missing' );
 
-use LightSource\Log\LOG;
+use WpThemeBones\Vendors\LightSource\Log\LOG;
 use WP_Error;
 
 /**

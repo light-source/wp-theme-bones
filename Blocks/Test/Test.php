@@ -5,7 +5,7 @@ namespace WpThemeBones\Blocks\Test;
 defined( 'ABSPATH' ) ||
 die( 'Constant missing' );
 
-use LightSource\BemBlocks\MODEL;
+use WpThemeBones\Vendors\LightSource\BemBlocks\MODEL;
 use WpThemeBones\Blocks\Start\Type\Arrow\Start_Type_Arrow_C;
 
 /**

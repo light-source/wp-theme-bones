@@ -32,7 +32,7 @@ final class Test_C extends CONTROLLER {
 	 * @return bool
 	 */
 	protected static function _IsHaveResources() {
-		return THEME::IsTemplate( THEME::TEMPLATE_TEST );
+		return THEME::IsTemplate( THEME::TEMPLATE_TEST ) || is_home() || is_front_page();
 	}
 
 
