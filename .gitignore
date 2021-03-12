@@ -1,5 +1,5 @@
 .idea
 node-js/node_modules
 vendors/vendor
-vendors/vendor-bin
-Vendors
+tests/_output
+tests/_support/_generated

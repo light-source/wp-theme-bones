@@ -15,43 +15,26 @@ use LightSource\BemBlocks\Settings as BemBlocksSettings;
  */
 abstract class CONTROLLER extends \LightSource\BemBlocks\CONTROLLER {
 
-
 	//////// constants
-
 
 	const _AJAX_PREFIX = Theme::_NAME . '_block__';
 
-
 	//////// static fields
 
-
-	/**
-	 * @var array
-	 */
-	private static $_BlocksWithResources = [];
-
+	private static array $_BlocksWithResources = [];
+	private static array $_AllBlocks = [];
 
 	//////// static methods
 
-
-	/**
-	 * @return bool
-	 */
-	protected static function _IsSupportAjax() {
+	protected static function _IsSupportAjax(): bool {
 		return false;
 	}
 
-	/**
-	 * @return bool
-	 */
-	protected static function _IsHaveResources() {
+	protected static function _IsHaveResources(): bool {
 		return false;
 	}
 
-	/**
-	 * @return string
-	 */
-	final protected static function _GetResourceName() {
+	final protected static function _GetResourceName(): string {
 
 		// used static for child support
 
@@ -70,17 +53,15 @@ abstract class CONTROLLER extends \LightSource\BemBlocks\CONTROLLER {
 		return strtolower( $resourceName );
 	}
 
-	/**
-	 * @return array
-	 */
-	final public static function GetBlocksWithResources() {
+	final public static function GetBlocksWithResources(): array {
 		return self::$_BlocksWithResources;
 	}
 
-	/**
-	 * @return string Unique form name base on static::class (without first namespace part)
-	 */
-	final public static function GetName() {
+	final public static function GetAllBlocks(): array {
+		return self::$_AllBlocks;
+	}
+
+	final public static function GetName(): string {
 
 		// used static for child support
 		$fullClassName = static::class;
@@ -94,20 +75,14 @@ abstract class CONTROLLER extends \LightSource\BemBlocks\CONTROLLER {
 		return strtolower( implode( '_', $nameParts ) );
 	}
 
-	/**
-	 * @return string
-	 */
-	final public static function GetAjaxName() {
+	final public static function GetAjaxName(): string {
 		// used static for child support
 		return self::_AJAX_PREFIX . static::GetName();
 	}
 
 	//// can be overridden, but require call parent::_method()
 
-	/**
-	 * @return void
-	 */
-	public static function Resources() {
+	public static function Resources(): void {
 
 		// below used static for child support
 
@@ -118,21 +93,16 @@ abstract class CONTROLLER extends \LightSource\BemBlocks\CONTROLLER {
 
 	}
 
-	/**
-	 * @return void
-	 */
-	public static function AjaxCallback() {
+	public static function AjaxCallback(): void {
 
 	}
 
-
 	//////// override extends methods
 
+	final protected static function _Init(): void {
 
-	/**
-	 * @return void
-	 */
-	final protected static function _Init() {
+		// using static for child support
+		self::$_AllBlocks[] = static::class;
 
 		// below used static for child support
 

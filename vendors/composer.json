@@ -15,5 +15,16 @@
     "psr-4": {
       "WpThemeBones\\": ".."
     }
+  },
+  "require-dev": {
+    "codeception/codeception": "^4.1",
+    "lucatume/wp-browser": "3.0.5.1",
+    "codeception/module-asserts": "^1.0",
+    "codeception/module-phpbrowser": "^1.0",
+    "codeception/module-webdriver": "^1.0",
+    "codeception/module-db": "^1.0",
+    "codeception/module-filesystem": "^1.0",
+    "codeception/module-cli": "^1.0",
+    "codeception/util-universalframework": "^1.0"
   }
 }
