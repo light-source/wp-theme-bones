@@ -1,6 +1,6 @@
 <?php
 
-declare(strict_types=1);
+declare( strict_types=1 );
 
 namespace WpThemeBones\Classes;
 
@@ -113,8 +113,8 @@ abstract class CONTROLLER extends \LightSource\BemBlocks\CONTROLLER {
 
 		$resourceName = static::_GetResourceName();
 
-		wp_enqueue_style( static::GetName(), Theme::DistPagesUrl( "{$resourceName}/{$resourceName}.min.css" ), [], null );
-		wp_enqueue_script( static::GetName(), Theme::DistPagesUrl( "{$resourceName}/{$resourceName}.min.js" ), [ 'jquery', ], null );
+		wp_enqueue_style( static::GetName(), THEME::GetUrl( "{$resourceName}/{$resourceName}.min.css", THEME::FOLDER__ASSETS_PAGES ), [], null );
+		wp_enqueue_script( static::GetName(), THEME::GetUrl( "{$resourceName}/{$resourceName}.min.js", THEME::FOLDER__ASSETS_PAGES ), [ 'jquery', ], null );
 
 	}
 

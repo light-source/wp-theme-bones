@@ -1,6 +1,6 @@
 <?php
 
-declare(strict_types=1);
+declare( strict_types=1 );
 
 namespace WpThemeBones\Classes;
 
@@ -14,65 +14,22 @@ abstract class THEME {
 
 	//////// constants
 
-	const DIST_PAGES_FOLDER = '/assets/pages';
-	const RESOURCES_FOLDER = 'resources';
 	const NAME = 'WpThemeBones';
-	const _NAME = 'wp_theme_bones';
+	const _NAME = 'wp-theme-bones';
+	const FOLDER__BLOCKS = '/Blocks';
+	const FOLDER__ASSETS_PAGES = '/assets/pages';
 
 	//////// static methods
 
+	public static function GetUrl( string $target, string $folder = '' ): string {
 
-	/**
-	 * @param string $target
-	 *
-	 * @return string
-	 */
-	public static function DistPagesUrl( $target ) {
-		return get_stylesheet_directory_uri() . self::DIST_PAGES_FOLDER . '/' . $target;
-	}
+		$url = get_stylesheet_directory_uri() . '/';
+		$url .= $folder ?
+			$folder . '/' :
+			'';
+		$url .= $target;
 
-	/**
-	 * Add htaccess rules
-	 *
-	 * @param string $rules
-	 *
-	 * @return string
-	 */
-	public static function HtaccessContent( $rules ) {
-
-		// to correct work required enabled modules : rewrite, expires, headers
-
-		$addingContent = "\n# BEGIN " . self::NAME;
-
-		//// 1. disable directory browsing
-
-		$addingContent .= "\nOptions -Indexes";
-
-		//// 2. lock non-public files
-
-		$addingContent .= "\n<FilesMatch '\.(ftpaccess|htaccess|conf|json|lock|twig|scss)$'>";
-		$addingContent .= "\nOrder allow,deny";
-		$addingContent .= "\nDeny from all";
-		$addingContent .= "\n</FilesMatch>";
-
-		$addingContent .= "\n<FilesMatch 'log.html|readme.txt'>";
-		$addingContent .= "\nOrder allow,deny";
-		$addingContent .= "\nDeny from all";
-		$addingContent .= "\n</FilesMatch>";
-
-		//// 3. protect theme resources
-
-		$addingContent        .= "\n<IfModule mod_rewrite.c>";
-		$addingContent        .= "\nRewriteEngine On";
-		$pathToThemeResources = ltrim( wp_make_link_relative( get_stylesheet_directory_uri() . '/' . self::RESOURCES_FOLDER ), '/' );
-		$addingContent        .= "\nRewriteRule ^{$pathToThemeResources}/(.*)$ - [F,L]";
-		$addingContent        .= "\n</IfModule>";
-
-		$addingContent .= "\n# End " . self::NAME . "\n\n";
-
-		$rules = $addingContent . $rules;
-
-		return $rules;
+		return $url;
 	}
 
 	/**

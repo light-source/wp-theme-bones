@@ -2,7 +2,7 @@
 
 declare( strict_types=1 );
 
-namespace WpThemeBones\Classes;
+namespace WpThemeBones\Classes\Security;
 
 defined( 'ABSPATH' ) ||
 die( 'Constant is missing' );
@@ -11,7 +11,9 @@ use LightSource\DataTypes\DATA_TYPES;
 use LightSource\StdResponse\STD_RESPONSE;
 use WP_Error;
 use WP_User;
-use WpThemeBones\Classes\Acf\SITE_SETTINGS;
+use WpThemeBones\Classes\{
+	Acf\SITE_SETTINGS,
+	HELPER};
 
 abstract class LOGIN_FORM {
 
@@ -68,12 +70,14 @@ abstract class LOGIN_FORM {
         <style type="text/css">
             /*#login h1 a, .login h1 a {
                 background-image: url(
+
             <? //echo $logo; ?>
-            );
-							width: 120px;
-							height: 120px;
-							background-size: cover;
-						}*/
+
+						);
+										width: 120px;
+										height: 120px;
+										background-size: cover;
+									}*/
 
             #login {
                 width: 350px !important;
