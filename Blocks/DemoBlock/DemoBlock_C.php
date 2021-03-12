@@ -1,35 +1,24 @@
 <?php
 
-namespace WpThemeBones\Blocks\Start;
+namespace WpThemeBones\Blocks\DemoBlock;
 
 defined( 'ABSPATH' ) ||
 die( 'Constant missing' );
 
 use WpThemeBones\Classes\CONTROLLER;
 
-/**
- * Class Start_C
- * @package WpThemeBones\Blocks\Start
- */
-final class Start_C extends CONTROLLER {
-
+final class DemoBlock_C extends CONTROLLER {
 
 	//////// construct
 
-
-	/**
-	 * Start_C constructor.
-	 */
 	public function __construct() {
-		parent::__construct( new Start() );
+		parent::__construct( new DemoBlock() );
 	}
-
 
 	//////// override extend methods
 
-
 	/**
-	 * @return Start
+	 * @return DemoBlock
 	 */
 	public function getModel() {
 		return parent::getModel();

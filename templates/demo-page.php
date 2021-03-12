@@ -1,6 +1,6 @@
 <?php
 /*
-Template Name: Test
+Template Name: Demo page
 Template Post Type: page
 */
 
@@ -9,12 +9,12 @@ namespace WpThemeBones;
 defined( 'ABSPATH' ) ||
 die( 'Constant missing' );
 
-use WpThemeBones\Blocks\Test\Test_C;
+use WpThemeBones\Blocks\DemoPage\DemoPage_C;
 
 get_header();
 
-$testC = new Test_C();
-$testC->getModel()->loadByTest();
+$testC = new DemoPage_C();
+$testC->getModel()->loadByDemo();
 $testC->render( [], true );
 
 get_footer();

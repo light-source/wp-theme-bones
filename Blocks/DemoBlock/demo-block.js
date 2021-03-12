@@ -1,13 +1,13 @@
 import bemBlock from '../BemBlock/bem-block';
 import Vue from 'vue';
 
-const START = {
+const DEMO_BLOCK = {
     "class": {
-        "ELEMENT": "start",
+        "ELEMENT": "demo-block",
     },
 };
 
-class Start extends bemBlock.Class {
+class DemoBlock extends bemBlock.Class {
 
 
     //////// constructor
@@ -44,4 +44,4 @@ class Start extends bemBlock.Class {
 
 }
 
-bemBlock.Register('.' + START.class.ELEMENT, Start);
+bemBlock.Register('.' + DEMO_BLOCK.class.ELEMENT, DemoBlock);

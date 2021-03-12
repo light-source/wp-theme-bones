@@ -5,7 +5,7 @@ namespace WpThemeBones\Blocks\Footer;
 defined( 'ABSPATH' ) ||
 die( 'Constant missing' );
 
-use WpThemeBones\Vendors\LightSource\BemBlocks\MODEL;
+use LightSource\BemBlocks\MODEL;
 
 /**
  * Class Header

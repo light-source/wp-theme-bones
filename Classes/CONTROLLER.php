@@ -5,13 +5,13 @@ namespace WpThemeBones\Classes;
 defined( 'ABSPATH' ) ||
 die( 'Constant is missing' );
 
-use WpThemeBones\Vendors\LightSource\BemBlocks\Settings as BemBlocksSettings;
+use LightSource\BemBlocks\Settings as BemBlocksSettings;
 
 /**
  * Class CONTROLLER
  * @package WpThemeBones\Classes
  */
-abstract class CONTROLLER extends \WpThemeBones\Vendors\LightSource\BemBlocks\CONTROLLER {
+abstract class CONTROLLER extends \LightSource\BemBlocks\CONTROLLER {
 
 
 	//////// constants

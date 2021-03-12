@@ -1,5 +1,9 @@
 {
+  "name": "lightsource/wp-theme-bones",
+  "description": "",
   "require": {
+    "php": "^7.4",
+    "ext-json": "*",
     "twig/twig": "3.1.1",
     "lightsource/log": "^1.0",
     "lightsource/bem-blocks": "^2.0"
@@ -8,8 +12,5 @@
     "psr-4": {
       "WpThemeBones\\": ".."
     }
-  },
-  "require-dev": {
-    "bamarni/composer-bin-plugin": "^1.4"
   }
 }

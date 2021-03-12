@@ -5,7 +5,7 @@ namespace WpThemeBones\Classes;
 defined( 'ABSPATH' ) ||
 die( 'Constant missing' );
 
-use WpThemeBones\Vendors\LightSource\Log\LOG;
+use LightSource\Log\LOG;
 use WP_Error;
 
 /**
@@ -22,7 +22,7 @@ abstract class THEME {
 	const RESOURCES_FOLDER = 'resources';
 	const NAME = 'WpThemeBones';
 	const _NAME = 'wp_theme_bones';
-	const TEMPLATE_TEST = 'templates/test.php';
+	const TEMPLATE_DEMO_PAGE = 'templates/demo-page.php';
 
 
 	//////// static methods

@@ -5,31 +5,18 @@ namespace WpThemeBones\Classes;
 defined( 'ABSPATH' ) ||
 die( 'Constant is missing' );
 
-/**
- * Class THUMBNAILS
- * @package WpThemeBones\Classes
- */
 abstract class THUMBNAILS {
 
-
 	//////// constants
-
 
 	const THUMBNAIL = 'thumbnail'; // 500
 	const MEDIUM = 'medium';  // 768
 	const LARGE = 'large';  // 1920
 	const FULL = 'full';
 
-
 	//////// static methods
 
-
-	/**
-	 * @param array $sizes
-	 *
-	 * @return array
-	 */
-	public static function FilterImageSizes( $sizes ) {
+	public static function FilterImageSizes( array $sizes ):array {
 		return array_diff( $sizes, [
 			'1536x1536',
 			'2048x2048',
@@ -38,10 +25,7 @@ abstract class THUMBNAILS {
 	}
 
 
-	/**
-	 * @return void
-	 */
-	public static function SetupDefaults() {
+	public static function SetupDefaults() :void{
 
 		// default wp sizes don't optimal (e.g. thumbnail is too small) and redundant (e.g. medium_large)
 
@@ -59,15 +43,7 @@ abstract class THUMBNAILS {
 
 	}
 
-	/**
-	 * @param int $threshold
-	 * @param array $imageSizes
-	 * @param string $file
-	 * @param int $attachmentId
-	 *
-	 * @return false
-	 */
-	public static function ImageSizeThreshold( $threshold, $imageSizes, $file, $attachmentId ) {
+	public static function ImageSizeThreshold( int $threshold,array $imageSizes,string $file, int $attachmentId ):bool {
 
 		$threshold = false; // don't need
 

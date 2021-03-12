@@ -5,25 +5,29 @@ namespace WpThemeBones;
 defined( 'ABSPATH' ) ||
 die( 'Constant missing' );
 
-use WpThemeBones\Vendors\LightSource\BemBlocks\Settings as BemBlocksSettings;
-use WpThemeBones\Vendors\LightSource\Log\LOG;
+use LightSource\Log\LOG;
+use LightSource\BemBlocks\Settings as BemBlocksSettings;
 
 use WpThemeBones\Classes\ACTIONS;
 
-include_once __DIR__ . '/Vendors/vendor/autoload.php';
+include_once __DIR__ . '/vendors/vendor/autoload.php';
 
-//// settings
+//////// settings
 
-const LOGS_FOLDER = __DIR__ . '/Logs';
+//// logs
+
+const LOGS_FOLDER  = __DIR__ . '/Logs';
 
 if ( ! is_dir( LOGS_FOLDER ) ) {
 	mkdir( LOGS_FOLDER );
 }
 
-ini_set( 'error_log', LOGS_FOLDER . '/php.log' );
+// error_reporting( E_ALL );
+ini_set( 'error_log', __DIR__ . '/Logs/php.log' );
 
 LOG::$PathToLogDir = LOGS_FOLDER;
 
+//// bemBlocks
 
 $bemBlocksSettings = BemBlocksSettings::Instance();
 $bemBlocksSettings->setBlocksDirPath( __DIR__ . '/Blocks' );
@@ -37,6 +41,7 @@ $bemBlocksSettings->setErrorCallback( function ( $errors ) {
 	LOG::Write( LOG::WARNING, $logMessage, $logDebugArgs );
 
 } );
+
 
 ////
 

@@ -1,11 +1,11 @@
-<div class="start{% if class is defined %} {{ class }}{% endif %}">
-    <div class="start__wrapper">
+<div class="demo-block{% if class is defined %} {{ class }}{% endif %}">
+    <div class="demo-block__wrapper">
         <p>{{ title }}</p>
-        <p class="start__text">{{ text }}</p>
+        <p class="demo-block__text">{{ text }}</p>
 
         {% verbatim %}
 
-        <p class="start__intro"
+        <p class="demo-block__intro"
            @click="onIntroClick">{{ introText }}</p>
 
          {% endverbatim %}
