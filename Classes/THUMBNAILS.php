@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace WpThemeBones\Classes;
 
-defined( 'ABSPATH' ) ||
+defined( 'WP_THEME_BONES' ) ||
 die( 'Constant is missing' );
 
 abstract class THUMBNAILS {

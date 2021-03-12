@@ -6,7 +6,7 @@ class PagesCest {
 
 	//////// constants
 
-	const DEMO = '/demo-page/';
+	const DEMO = '/demo/';
 
 	//////// static methods
 
@@ -25,7 +25,8 @@ class PagesCest {
 
 		self::_VisitPage( self::DEMO, $I );
 
-		// todo
+		# demo block
+		$I->seeElement( '.demo-page .demo-block__text' );
 
 	}
 

@@ -16,8 +16,8 @@ abstract class THEME {
 
 	const NAME = 'WpThemeBones';
 	const _NAME = 'wp-theme-bones';
-	const FOLDER__BLOCKS = '/Blocks';
-	const FOLDER__ASSETS_PAGES = '/assets/pages';
+	const FOLDER__BLOCKS = 'Blocks';
+	const FOLDER__ASSETS_PAGES = 'assets/pages';
 
 	//////// static methods
 

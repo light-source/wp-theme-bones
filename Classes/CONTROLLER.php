@@ -17,7 +17,7 @@ abstract class CONTROLLER extends \LightSource\BemBlocks\CONTROLLER {
 
 	//////// constants
 
-	const _AJAX_PREFIX = Theme::_NAME . '_block__';
+	const _AJAX_PREFIX = THEME::_NAME . '_block__';
 
 	//////// static fields
 

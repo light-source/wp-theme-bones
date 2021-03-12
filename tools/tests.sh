@@ -99,28 +99,6 @@ function restoreCodeceptionEnvironmentConfig() {
 
 }
 
-function makeSslPlugin() {
-
-  cd "$relativePathToWpRoot" || exit
-
-  cd wp-content/plugins || exit
-  mv really-simple-ssl really-simple-ssl-copy
-
-  cd "$parent_path" || exit
-
-}
-
-function restoreSslPlugin() {
-
-  cd "$relativePathToWpRoot" || exit
-
-  cd wp-content/plugins || exit
-  mv really-simple-ssl-copy really-simple-ssl
-
-  cd "$parent_path" || exit
-
-}
-
 function runTests() {
   php ../vendors/vendor/bin/codecept run -c ../tests "$@"
   exitStatus=$?
@@ -131,13 +109,11 @@ cd "$parent_path" || exit
 makeCodeceptionEnvironmentConfig # for acceptance & wpunit tests
 makeHtaccess                     # for acceptance tests (because there is no htaccess in git by default)
 makeWpConfig                     # for acceptance tests (because there is no config in git by default)
-makeSslPlugin                    # allow http for acceptance tests
 
 runTests "$@"
 
 restoreCodeceptionEnvironmentConfig
 restoreHtaccess
 restoreWpConfig
-restoreSslPlugin
 
 exit $exitStatus

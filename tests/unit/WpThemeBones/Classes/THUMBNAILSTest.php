@@ -6,7 +6,7 @@ namespace WpThemeBones\Classes;
 
 use Codeception\Test\Unit;
 
-class VariablesInjectorTest extends Unit {
+class THUMBNAILSTest extends Unit {
 
 	//////// methods
 
@@ -19,7 +19,7 @@ class VariablesInjectorTest extends Unit {
 			'100x100',
 		] );
 
-		$this->assertEquals( [ '100x100', ], $sizes );
+		$this->assertEquals( [ '100x100', ], array_values( $sizes ) );
 
 	}
 

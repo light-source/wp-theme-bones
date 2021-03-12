@@ -18,7 +18,7 @@ modules:
       domain: "%TEST_SITE_WP_DOMAIN%"
       adminEmail: "%TEST_SITE_ADMIN_EMAIL%"
       title: "WP Test"
-      theme: 'angama'
+      theme: 'wp-theme-bones'
       plugins: [
           'advanced-custom-fields-pro/acf.php',
       ]

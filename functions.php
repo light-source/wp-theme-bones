@@ -1,9 +1,9 @@
 <?php
 
-namespace WpThemeBones;
-
-defined( 'ABSPATH' ) ||
-die( 'Constant missing' );
+// using a custom constant with the check to support tests (so can be filled in a bootstrap file)
+if ( ! defined( 'WP_THEME_BONES' ) ) {
+	define( 'WP_THEME_BONES', '1' );
+}
 
 use LightSource\Log\LOG;
 use LightSource\BemBlocks\Settings as BemBlocksSettings;

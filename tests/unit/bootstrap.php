@@ -1,5 +1,5 @@
 <?php
 
-if ( ! defined( 'ANGAMA' ) ) {
-	define( 'ANGAMA', '1' );
+if ( ! defined( 'WP_THEME_BONES' ) ) {
+	define( 'WP_THEME_BONES', '1' );
 }

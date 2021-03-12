@@ -3,3 +3,5 @@ node-js/node_modules
 vendors/vendor
 tests/_output
 tests/_support/_generated
+Logs/*
+!Logs/.gitkeep
