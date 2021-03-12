@@ -141,7 +141,6 @@ abstract class LOGIN_FORM {
 			return new WP_Error( 'security_fail', 'Security field is missing' );
 		}
 
-
 		$token = $tokenResponse[ STD_RESPONSE::ARGS ] [ DATA_TYPES::_ARG__VALUE ];
 
 		if ( ! self::_CaptchaVerify( $token ) ) {
