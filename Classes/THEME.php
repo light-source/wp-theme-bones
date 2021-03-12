@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace WpThemeBones\Classes;
 
 defined( 'ABSPATH' ) ||
@@ -8,35 +10,17 @@ die( 'Constant missing' );
 use LightSource\Log\LOG;
 use WP_Error;
 
-/**
- * Class THEME
- * @package Angama\Std
- */
 abstract class THEME {
 
-
 	//////// constants
-
 
 	const DIST_PAGES_FOLDER = '/assets/pages';
 	const RESOURCES_FOLDER = 'resources';
 	const NAME = 'WpThemeBones';
 	const _NAME = 'wp_theme_bones';
-	const TEMPLATE_DEMO_PAGE = 'templates/demo-page.php';
-
 
 	//////// static methods
 
-
-	/**
-	 * @param string $templateConst
-	 *
-	 * @return bool
-	 */
-	public static function IsTemplate( $templateConst ) {
-		return ( is_singular( [ 'page', ] ) &&
-		         $templateConst === get_page_template_slug( get_queried_object_id() ) );
-	}
 
 	/**
 	 * @param string $target

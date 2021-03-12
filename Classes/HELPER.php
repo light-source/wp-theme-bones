@@ -1,37 +1,59 @@
 <?php
 
+declare(strict_types=1);
+
 namespace WpThemeBones\Classes;
 
 defined( 'ABSPATH' ) ||
-die( 'Constant missing' );
+die( 'Constant is missing' );
 
-/**
- * Class HELPER
- * @package Angama\Std
- */
 abstract class HELPER {
-
 
 	//////// static methods
 
+	final public static function GetCurrentHost(): string {
+		return ( parse_url( site_url(), PHP_URL_HOST ) );
+	}
+
 	/**
-	 * Work as std, but added special to remind about default save keys,
-	 * it's can broken some code if wait work with first-[0] element
+	 * @param string $url
+	 * @param bool $isPost
+	 * @param array $fields
 	 *
-	 * @param array $array
-	 * @param callable $callback
-	 * @param bool $isSaveKeys
-	 *
-	 * @return array
+	 * @return string|false
 	 */
-	final public static function ArrayFilter( $array, $callback, $isSaveKeys ) {
+	final public static function CUrl( string $url, bool $isPost, array $fields = [] ) {
 
-		$arrayResult = array_filter( $array, $callback );
+		$response = false;
 
-		return $isSaveKeys ?
-			$arrayResult :
-			array_values( $arrayResult );
+		$resource = curl_init();
+
+		if ( false === $resource ) {
+			return $response;
+		}
+
+		$options = [
+			CURLOPT_URL            => $url,
+			// return, not print result
+			CURLOPT_RETURNTRANSFER => true,
+		];
+
+		if ( $isPost ) {
+
+			$options[ CURLOPT_POST ]       = true;
+			$options[ CURLOPT_POSTFIELDS ] = $fields;
+
+		}
+
+		curl_setopt_array( $resource, $options );
+
+		// return  result or FALSE
+
+		$response = curl_exec( $resource );
+
+		curl_close( $resource );
+
+		return $response;
 	}
 
 }
-

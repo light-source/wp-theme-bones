@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "dbef04795a9f54ffef4dbf18c717917d",
+    "content-hash": "e05f3eb112c12cf94d395d4aa058befe",
     "packages": [
         {
             "name": "lightsource/bem-blocks",
@@ -41,6 +41,41 @@
                 "source": "https://github.com/light-source/bem-blocks/tree/2.2.4"
             },
             "time": "2021-02-04T11:04:32+00:00"
+        },
+        {
+            "name": "lightsource/data-types",
+            "version": "2.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/light-source/data-types.git",
+                "reference": "fe94b038ad349488a11c7a937bf4e19ba3ab6929"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/light-source/data-types/zipball/fe94b038ad349488a11c7a937bf4e19ba3ab6929",
+                "reference": "fe94b038ad349488a11c7a937bf4e19ba3ab6929",
+                "shasum": ""
+            },
+            "require": {
+                "ext-mbstring": "*",
+                "lightsource/std-response": "^2.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "LightSource\\DataTypes\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-2.0-only"
+            ],
+            "description": "Class for complex data cleaning depending on a type",
+            "support": {
+                "issues": "https://github.com/light-source/data-types/issues",
+                "source": "https://github.com/light-source/data-types/tree/2.0.1"
+            },
+            "time": "2020-11-07T08:23:49+00:00"
         },
         {
             "name": "lightsource/date-time",
@@ -107,6 +142,37 @@
                 "source": "https://github.com/light-source/log/tree/1.0.4"
             },
             "time": "2020-11-07T08:49:50+00:00"
+        },
+        {
+            "name": "lightsource/std-response",
+            "version": "2.0.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/light-source/std-response.git",
+                "reference": "436a87cbd2f20e5a21711425d970a7042ff21939"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/light-source/std-response/zipball/436a87cbd2f20e5a21711425d970a7042ff21939",
+                "reference": "436a87cbd2f20e5a21711425d970a7042ff21939",
+                "shasum": ""
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "LightSource\\StdResponse\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-2.0-only"
+            ],
+            "description": "Standardization for a function / method response with multiple arguments",
+            "support": {
+                "issues": "https://github.com/light-source/std-response/issues",
+                "source": "https://github.com/light-source/std-response/tree/2.0.2"
+            },
+            "time": "2020-11-07T08:51:49+00:00"
         },
         {
             "name": "symfony/polyfill-ctype",

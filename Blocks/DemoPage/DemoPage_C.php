@@ -7,7 +7,7 @@ die( 'Constant missing' );
 
 use WpThemeBones\Classes\{
 	CONTROLLER,
-	THEME
+	TEMPLATE
 };
 
 final class DemoPage_C extends CONTROLLER {
@@ -21,7 +21,9 @@ final class DemoPage_C extends CONTROLLER {
 	//////// static methods
 
 	protected static function _IsHaveResources(): bool {
-		return THEME::IsTemplate( THEME::TEMPLATE_DEMO_PAGE ) || is_home() || is_front_page();
+		return ( TEMPLATE::IsTemplate( TEMPLATE::DEMO_PAGE ) ||
+		         is_home() ||
+		         is_front_page() );
 	}
 
 

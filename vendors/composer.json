@@ -6,7 +6,10 @@
     "ext-json": "*",
     "twig/twig": "3.1.1",
     "lightsource/log": "^1.0",
-    "lightsource/bem-blocks": "^2.0"
+    "lightsource/bem-blocks": "^2.0",
+    "lightsource/data-types": "^2.0",
+    "lightsource/std-response": "^2.0",
+    "ext-curl": "*"
   },
   "autoload": {
     "psr-4": {
