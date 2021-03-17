@@ -16,6 +16,7 @@ class SecurityCest {
 	const THEME__EXT__LOCK = self::_THEME . '/vendors/composer.lock';
 	const THEME__EXT__TWIG = self::_THEME . '/Blocks/Header/header.twig';
 	const THEME__EXT__SCSS = self::_THEME . '/Blocks/Header/header.scss';
+	const THEME__EXT__SH = self::_THEME . '/tools/tests.sh';
 
 	const THEME__FILE__README = self::_THEME . '/readme.md';
 
@@ -37,7 +38,6 @@ class SecurityCest {
 		self::_ForbiddenUrl( self::THEME__VIEW_FOLDER, $I );
 	}
 
-
 	public function htaccessForbiddenFileExtensions( AcceptanceTester $I ) {
 
 		self::_ForbiddenUrl( self::EXT__HTACCESS, $I );
@@ -45,6 +45,8 @@ class SecurityCest {
 		self::_ForbiddenUrl( self::THEME__EXT__LOCK, $I );
 		self::_ForbiddenUrl( self::THEME__EXT__TWIG, $I );
 		self::_ForbiddenUrl( self::THEME__EXT__SCSS, $I );
+		self::_ForbiddenUrl( self::THEME__EXT__SH, $I );
+
 
 	}
 
