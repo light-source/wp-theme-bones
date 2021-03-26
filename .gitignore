@@ -1,7 +1,10 @@
 .idea
 node-js/node_modules
 vendors/vendor
-tests/_output
-tests/_support/_generated
 Logs/*
 !Logs/.gitkeep
+tests/codeception/_output
+!tests/codeception/.gitkeep
+tests/codeception/_support/_generated
+tests/testcafe/_output/*
+!tests/testcafe/_output/.gitkeep

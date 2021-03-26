@@ -12,7 +12,10 @@ dbPassword=""
 dbHost="locahost"
 siteUrl="http://theme.loc"
 siteDomain="theme.loc"
+
 relativePathToWpRoot="../../../.."
+relativePathToCodeception="../tests/codeception"
+relativePathToTestcafe="../tests/testcafe"
 
 ######## script
 
@@ -25,7 +28,29 @@ parent_path=$(
   cd "$(dirname "${BASH_SOURCE[0]}")" || exit
   pwd -P
 )
-exitStatus=0
+exitStatus=1
+
+function makeCodeceptionEnvironmentConfig() {
+
+  cd $relativePathToCodeception || exit
+  cp .env.testing .env.testing.copy
+  sed -i "s/\$HOST/$dbHost/g" .env.testing
+  sed -i "s/\$DB/$dbTestName/g" .env.testing
+  sed -i "s/\$USER/$dbUser/g" .env.testing
+  sed -i "s/\$PASS/$dbPassword/g" .env.testing
+  sed -i "s/\$URL/$siteUrl/g" .env.testing
+  sed -i "s/\$DOMAIN/$siteDomain/g" .env.testing
+  cd "$parent_path" || exit
+
+}
+
+function restoreCodeceptionEnvironmentConfig() {
+
+  cd $relativePathToCodeception || exit
+  mv .env.testing.copy .env.testing -f
+  cd "$parent_path" || exit
+
+}
 
 function makeHtaccess() {
 
@@ -77,31 +102,18 @@ function restoreWpConfig() {
 
 }
 
-function makeCodeceptionEnvironmentConfig() {
-
-  cd ../tests || exit
-  cp .env.testing .env.testing.copy
-  sed -i "s/\$HOST/$dbHost/g" .env.testing
-  sed -i "s/\$DB/$dbTestName/g" .env.testing
-  sed -i "s/\$USER/$dbUser/g" .env.testing
-  sed -i "s/\$PASS/$dbPassword/g" .env.testing
-  sed -i "s/\$URL/$siteUrl/g" .env.testing
-  sed -i "s/\$DOMAIN/$siteDomain/g" .env.testing
-  cd "$parent_path" || exit
-
-}
-
-function restoreCodeceptionEnvironmentConfig() {
-
-  cd ../tests || exit
-  mv .env.testing.copy .env.testing -f
-  cd "$parent_path" || exit
-
-}
-
-function runTests() {
-  php ../vendors/vendor/bin/codecept run -c ../tests "$@"
+function runCodeception() {
+  php ../vendors/vendor/bin/codecept run -c $relativePathToCodeception --xml "$@"
   exitStatus=$?
+}
+
+function runTestcafe() {
+
+  cd $relativePathToTestcafe || exit
+  npx testcafe -c 4
+  exitStatus=$?
+  cd "$parent_path" || exit
+
 }
 
 cd "$parent_path" || exit
@@ -110,7 +122,10 @@ makeCodeceptionEnvironmentConfig # for acceptance & wpunit tests
 makeHtaccess                     # for acceptance tests (because there is no htaccess in git by default)
 makeWpConfig                     # for acceptance tests (because there is no config in git by default)
 
-runTests "$@"
+runCodeception "$@"
+if [[ $exitStatus -eq 0 ]]; then
+  runTestcafe
+fi
 
 restoreCodeceptionEnvironmentConfig
 restoreHtaccess

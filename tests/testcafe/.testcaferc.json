@@ -1,0 +1,12 @@
+{
+  "browsers": [
+    "firefox:headless"
+  ],
+  "src": [
+    "./pages.js"
+  ],
+  "reporter": {
+    "name": "xunit",
+    "output": "./_output/report.xml"
+  }
+}
