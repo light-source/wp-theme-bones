@@ -9,7 +9,7 @@ dbSiteName="" # for acceptance tests (because there is no config in git by defau
 dbTestName=""       # for wpunit tests (to provide path to a test db)
 dbUser=""
 dbPassword=""
-dbHost="locahost"
+dbHost="localhost"
 siteUrl="http://theme.loc"
 siteDomain="theme.loc"
 
