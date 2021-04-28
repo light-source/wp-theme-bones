@@ -1,4 +1,4 @@
-<div class="demo-block{% if class is defined %} {{ class }}{% endif %}">
+<div class="demo-block{% if classes %} {{ classes|join(' ') }}{% endif %}">
     <div class="demo-block__wrapper">
         <p>{{ title }}</p>
         <p class="demo-block__text">{{ text }}</p>

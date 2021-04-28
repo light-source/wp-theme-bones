@@ -44,10 +44,11 @@ abstract class HTACCESS {
 
 		//// 3. protect theme resources
 
-		$addingContent .= "\n<IfModule mod_rewrite.c>";
+		// todo allow .min.js but deny .js
+		/*$addingContent .= "\n<IfModule mod_rewrite.c>";
 		$addingContent .= "\nRewriteEngine On";
 		$addingContent .= "\nRewriteRule ^{$pathToBlockAssets}/.*\.(js)$ - [F,L]";
-		$addingContent .= "\n</IfModule>";
+		$addingContent .= "\n</IfModule>";*/
 
 		//// 4. password protect whole site
 

@@ -26,7 +26,7 @@ final class DemoBlock_Type_Arrow extends DemoBlock {
 	public function loadArrowTypeByDemo(): void {
 
 		$this->loadByDemo();
-		$this->_footer = '[This is a footer]';
+		$this->_footer = '[This is an arrow theme]';
 
 	}
 

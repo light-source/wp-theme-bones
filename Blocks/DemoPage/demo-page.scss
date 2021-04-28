@@ -1,10 +1,8 @@
-@use "../DemoBlock/demo-block";
-
 .demo-page {
 
   outline: none;
 
-  &__start {
+  &__first {
     text-transform: uppercase;
   }
 

@@ -4,8 +4,8 @@
 
     <p class="demo-page__message"></p>
 
-    {% include demoBlockTypeArrow._template with demoBlockTypeArrow|merge({
-        class:'demo-page__start',
-    }) only %}
+    {{ _include(demoBlockTypeArrow,{classes:['demo-page__first',],}) }}
+
+    {{ _include(demoBlockTypeCircle,{classes:['demo-page__second',],}) }}
 
 </div>

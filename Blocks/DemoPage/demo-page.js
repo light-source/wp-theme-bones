@@ -1,5 +1,6 @@
 (function () {
 
+    window.wpThemeBones = window.wpThemeBones || {};
     let bemBlock = window.wpThemeBones.bemBlock || null;
 
     if (!bemBlock) {

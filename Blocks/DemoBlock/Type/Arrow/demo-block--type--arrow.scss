@@ -1,0 +1,5 @@
+@use "../../demo-block";
+
+.demo-block--type--arrow {
+  @include demo-block.type--arrow;
+}

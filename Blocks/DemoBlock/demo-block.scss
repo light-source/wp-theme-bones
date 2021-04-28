@@ -1,15 +1,28 @@
-.demo-block {
+$self: ".demo-block";
+
+@mixin demo-block {
 
   padding: 10px;
-  border: 1px solid black;
 
-  &__wrapper {
+  #{$self}__wrapper {
     border: 1px solid black;
     padding: 10px;
   }
 
-  &__text {
+  #{$self}__text {
     color: green;
   }
+
+}
+
+@mixin type--arrow {
+  @include demo-block;
+}
+
+@mixin type--circle {
+
+  @include demo-block;
+
+  color: orange;
 
 }

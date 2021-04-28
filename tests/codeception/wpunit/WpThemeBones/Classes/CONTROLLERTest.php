@@ -13,26 +13,29 @@ class CONTROLLERTest extends WPTestCase {
 
 	public function testTwigTemplates() {
 
-		$blocks = CONTROLLER::GetAllBlocks();
+		$blocks            = Fbf::Instance()->getBlocks();
+		$controllerClasses = $blocks->getLoadedControllerClasses();
 
-		foreach ( $blocks as $block ) {
+		foreach ( $controllerClasses as $controllerClass ) {
 
-			if ( ! is_subclass_of( $block, CONTROLLER::class ) ) {
+			if ( ! is_subclass_of( $controllerClass, CONTROLLER::class ) ) {
 				$this->fail( 'The blocks list is wrong' );
 			}
 
 			try {
-				$controller = new $block();
+				$controller = new $controllerClass();
 			} catch ( Error $ex ) {
-				$this->fail( 'The block constructor is wrong : ' . $block );
+				$this->fail( 'The block constructor is wrong : ' . $controllerClass );
 			}
 
-			// for IDE
-			if ( ! is_subclass_of( $controller, CONTROLLER::class ) ) {
+			// 1. for IDE
+			// 2. for blocks without model, like js/css only
+			if ( ! is_subclass_of( $controller, CONTROLLER::class ) ||
+			     ! $controller->getModel() ) {
 				continue;
 			}
 
-			$this->assertNotEmpty( $controller->render(), 'Wrong block is ' . $block );
+			$this->assertNotEmpty( $blocks->renderBlock( $controller ), 'Wrong block is ' . $controllerClass );
 
 		}
 

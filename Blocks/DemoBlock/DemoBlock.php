@@ -11,6 +11,7 @@ class DemoBlock extends MODEL {
 
 	protected string $_title;
 	protected string $_text;
+	protected array $_classes;
 
 	public function __construct() {
 		parent::__construct();

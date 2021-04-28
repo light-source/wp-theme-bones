@@ -43,6 +43,15 @@ abstract class ACTIONS {
 		//// fbf (scripts, styles, ajax)
 
 		Fbf::Instance()->getBlocks()->loadAll();
+		add_action( 'wp_footer', function () {
+
+			$js  = Fbf::Instance()->getBlocks()->getUsedResources( '.min.js', true );
+			$css = Fbf::Instance()->getBlocks()->getUsedResources( '.min.css', true );
+
+			echo "\n<script>{$js}</script>\n";
+			echo "\n<style>{$css}</style>\n";
+
+		} );
 
 	}
 
