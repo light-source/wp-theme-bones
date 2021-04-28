@@ -1,14 +1,19 @@
-import Log from '../Log/log';
-import bemBlock from '@lightsource/bem-block';
+import bemBlock from '../../node-js/node_modules/@lightsource/bem-block';
 
-bemBlock.settings.ERROR_CALLBACK = function (errors) {
+(function () {
 
-    let logMessage = 'Something wrong with a bem block';
-    let logDebugArgs = {
-        errors: errors,
+    bemBlock.settings.ERROR_CALLBACK = function (errors) {
+
+        let logMessage = 'Something wrong with a bem block';
+        let logDebugArgs = {
+            errors: errors,
+        };
+        console.log(logMessage, logDebugArgs);
+
     };
-    Log.write(Log.level.WARNING, logMessage, logDebugArgs);
 
-};
+    window.wpThemeBones = window.wpThemeBones || {};
+    window.wpThemeBones.bemBlock = bemBlock;
 
-export default bemBlock;
+}());
+

@@ -3,13 +3,6 @@
         <p>{{ title }}</p>
         <p class="demo-block__text">{{ text }}</p>
 
-        {% verbatim %}
-
-        <p class="demo-block__intro"
-           @click="onIntroClick">{{ introText }}</p>
-
-         {% endverbatim %}
-
         {% block footer %}{% endblock footer %}
 
     </div>

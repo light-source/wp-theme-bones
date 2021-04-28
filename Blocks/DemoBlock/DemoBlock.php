@@ -5,26 +5,21 @@ namespace WpThemeBones\Blocks\DemoBlock;
 defined( 'ABSPATH' ) ||
 die( 'Constant missing' );
 
-use LightSource\BemBlocks\MODEL;
+use LightSource\FrontBlocksFramework\MODEL;
 
 class DemoBlock extends MODEL {
 
-	//////// fields
-
 	protected string $_title;
 	protected string $_text;
-
-	//////// constructor
 
 	public function __construct() {
 		parent::__construct();
 	}
 
-	//////// methods
+	final public function loadByDemo(): void {
 
-	final public function loadByDemo():void {
-
-		$this->_title = 'Just another new block';
+		parent::_load();
+		$this->_title = 'Just demo block';
 		$this->_text  = 'Description';
 
 	}

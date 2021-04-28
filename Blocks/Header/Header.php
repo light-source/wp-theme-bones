@@ -5,60 +5,23 @@ namespace WpThemeBones\Blocks\Header;
 defined( 'ABSPATH' ) ||
 die( 'Constant missing' );
 
-use LightSource\BemBlocks\MODEL;
+use LightSource\FrontBlocksFramework\MODEL;
 
-/**
- * Class Header
- * @package WpThemeBones\Blocks\Header
- */
-final class Header extends MODEL {
+class Header extends MODEL {
 
+	protected string $_htmlAttrs;
+	protected string $_charset;
+	protected string $_wpHeader;
+	protected array $_bodyClasses;
+	protected string $_wpBodyOpen;
 
-	//////// fields
-
-
-	/**
-	 * @var string
-	 */
-	protected $_htmlAttrs;
-	/**
-	 * @var string
-	 */
-	protected $_charset;
-	/**
-	 * @var string
-	 */
-	protected $_wpHeader;
-	/**
-	 * @var string
-	 */
-	protected $_bodyClasses;
-	/**
-	 * @var string
-	 */
-	protected $_wpBodyOpen;
-
-
-	//////// construct
-
-
-	/**
-	 * Header constructor.
-	 */
 	public function __construct() {
 		parent::__construct();
 	}
 
-
-
-	//////// methods
-
-
-	/**
-	 * @return void
-	 */
 	public function loadByDefault() {
 
+		parent::_load();
 		ob_start();
 		wp_head();
 		$this->_wpHeader = ob_get_clean();

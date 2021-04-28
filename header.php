@@ -5,8 +5,12 @@ namespace WpThemeBones;
 defined( 'ABSPATH' ) ||
 die( 'Constant missing' );
 
+use WpThemeBones\Blocks\Header\Header;
 use WpThemeBones\Blocks\Header\Header_C;
+use WpThemeBones\Classes\Fbf;
 
-$headerC = new Header_C();
-$headerC->getModel()->loadByDefault();
-$headerC->render( [], true );
+$headerModel = new Header();
+$headerModel->loadByDefault();
+$headerController = new Header_C( $headerModel );
+
+Fbf::Instance()->getBlocks()->renderBlock( $headerController, [], true );

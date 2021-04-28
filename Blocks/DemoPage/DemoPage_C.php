@@ -5,35 +5,29 @@ namespace WpThemeBones\Blocks\DemoPage;
 defined( 'ABSPATH' ) ||
 die( 'Constant missing' );
 
+use LightSource\FrontBlocksFramework\MODEL;
+use WpThemeBones\Blocks\DemoBlock\Type\Arrow\DemoBlock_Type_Arrow_C;
 use WpThemeBones\Classes\{
 	CONTROLLER,
 	TEMPLATE
 };
 
-final class DemoPage_C extends CONTROLLER {
+class DemoPage_C extends CONTROLLER {
 
-	//////// construct
+	protected DemoBlock_Type_Arrow_C $_demoBlockTypeArrow;
 
-	public function __construct() {
-		parent::__construct( new DemoPage() );
+	public function __construct( ?MODEL $model = null ) {
+
+		parent::__construct( $model );
+
+		$this->_demoBlockTypeArrow = new DemoBlock_Type_Arrow_C();
+
 	}
-
-	//////// static methods
 
 	protected static function _IsHaveResources(): bool {
 		return ( TEMPLATE::IsTemplate( TEMPLATE::DEMO_PAGE ) ||
 		         is_home() ||
 		         is_front_page() );
-	}
-
-
-	//////// override extend methods
-
-	/**
-	 * @return DemoPage
-	 */
-	public function getModel() {
-		return parent::getModel();
 	}
 
 }

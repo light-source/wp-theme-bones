@@ -6,8 +6,6 @@ if ( ! defined( 'WP_THEME_BONES' ) ) {
 }
 
 use LightSource\Log\LOG;
-use LightSource\BemBlocks\Settings as BemBlocksSettings;
-
 use WpThemeBones\Classes\ACTIONS;
 
 include_once __DIR__ . '/vendors/vendor/autoload.php';
@@ -16,7 +14,7 @@ include_once __DIR__ . '/vendors/vendor/autoload.php';
 
 //// logs
 
-const LOGS_FOLDER  = __DIR__ . '/Logs';
+const LOGS_FOLDER = __DIR__ . '/Logs';
 
 if ( ! is_dir( LOGS_FOLDER ) ) {
 	mkdir( LOGS_FOLDER );
@@ -27,24 +25,6 @@ ini_set( 'error_log', __DIR__ . '/Logs/php.log' );
 
 LOG::$PathToLogDir = LOGS_FOLDER;
 
-//// bemBlocks
-
-$bemBlocksSettings = BemBlocksSettings::Instance();
-$bemBlocksSettings->setBlocksDirPath( __DIR__ . '/Blocks' );
-$bemBlocksSettings->setBlocksDirNamespace( 'WpThemeBones\Blocks' );
-$bemBlocksSettings->setErrorCallback( function ( $errors ) {
-
-	$logMessage   = 'Bem blocks error';
-	$logDebugArgs = [
-		'$errors' => $errors,
-	];
-	LOG::Write( LOG::WARNING, $logMessage, $logDebugArgs );
-
-} );
-
-
 ////
 
 ACTIONS::SetHooks();
-
-

@@ -1,4 +1,5 @@
 .idea
+Blocks/mix-manifest.json
 node-js/node_modules
 vendors/vendor
 Logs/*

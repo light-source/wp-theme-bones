@@ -40,9 +40,9 @@ abstract class ACTIONS {
 
 		add_filter( 'mod_rewrite_rules', [ HTACCESS::class, 'Content' ] );
 
-		//// blocks (scripts, styles, ajax)
+		//// fbf (scripts, styles, ajax)
 
-		CONTROLLER::InitAll();
+		Fbf::Instance()->getBlocks()->loadAll();
 
 	}
 

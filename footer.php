@@ -5,8 +5,12 @@ namespace WpThemeBones;
 defined( 'ABSPATH' ) ||
 die( 'Constant missing' );
 
+use WpThemeBones\Blocks\Footer\Footer;
 use WpThemeBones\Blocks\Footer\Footer_C;
+use WpThemeBones\Classes\Fbf;
 
-$footerC = new Footer_C();
-$footerC->getModel()->loadByDefault();
-$footerC->render( [], true );
+$footerModel = new Footer();
+$footerModel->loadByDefault();
+$footerController = new Footer_C( $footerModel );
+
+Fbf::Instance()->getBlocks()->renderBlock( $footerController, [], true );
