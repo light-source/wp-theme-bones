@@ -15,10 +15,18 @@ class DemoBlock_Type_Arrow_C extends CONTROLLER {
 
 	public function __construct( ?MODEL $model = null ) {
 
+		$model = ! $model ?
+			new DemoBlock_Type_Arrow() :
+			$model;
+
 		parent::__construct( $model );
 
 		$this->_demoBlock = new DemoBlock_C();
 
+	}
+
+	public function getModel(): DemoBlock_Type_Arrow {
+		return parent::getModel();
 	}
 
 }
