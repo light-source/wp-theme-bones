@@ -9,13 +9,11 @@ namespace WpThemeBones;
 defined( 'ABSPATH' ) ||
 die( 'Constant missing' );
 
-use WpThemeBones\Blocks\DemoPage\DemoPage;
 use WpThemeBones\Blocks\DemoPage\DemoPage_C;
 use WpThemeBones\Classes\Fbf;
 
-$demoPageModel = new DemoPage();
-$demoPageModel->loadByDemo();
-$demoPageController = new DemoPage_C( $demoPageModel );
+$demoPageController = new DemoPage_C();
+$demoPageController->getModel()->loadByDemo();
 
 get_header();
 

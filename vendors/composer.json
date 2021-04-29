@@ -9,7 +9,7 @@
     "lightsource/data-types": "^2.0",
     "lightsource/std-response": "^2.0",
     "ext-curl": "*",
-    "lightsource/front-blocks-framework": "^1.0.4"
+    "lightsource/front-blocks-framework": "^1.0.6"
   },
   "autoload": {
     "psr-4": {

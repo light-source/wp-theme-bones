@@ -21,17 +21,9 @@ class DemoPage_C extends CONTROLLER {
 
 	public function __construct( ?MODEL $model = null ) {
 
-		$model = ! $model ?
-			new DemoPage() :
-			$model;
-
 		parent::__construct( $model );
 
-		$this->_demoBlockTypeArrow  = new DemoBlock_Type_Arrow_C();
-		$this->_bemBlock            = new BemBlock_C();
-		$this->_demoBlockTypeCircle = new DemoBlock_Type_Circle_C();
-
-		$this->__external['_demoBlockTypeArrow'] = [
+		$this->__external['_demoBlockTypeArrow']  = [
 			'classes' => [ 'demo-block--type--arrow', ],
 		];
 		$this->__external['_demoBlockTypeCircle'] = [
@@ -40,7 +32,8 @@ class DemoPage_C extends CONTROLLER {
 
 	}
 
-	public function getModel(): DemoPage {
+	public function getModel(): ?DemoPage {
+		/** @noinspection PhpIncompatibleReturnTypeInspection */
 		return parent::getModel();
 	}
 
