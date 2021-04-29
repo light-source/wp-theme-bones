@@ -2,6 +2,7 @@
 Blocks/mix-manifest.json
 node-js/node_modules
 vendors/vendor
+vendors/composer.lock
 Logs/*
 !Logs/.gitkeep
 tests/codeception/_output

@@ -11,7 +11,7 @@ use WpThemeBones\Blocks\DemoBlock\DemoBlock_C;
 
 class DemoBlock_Type_Circle_C extends DemoBlock_C {
 
-	public static function GetPathToTwigTemplate( Settings $settings, string $controllerClass ): string {
+	public static function GetPathToTwigTemplate( Settings $settings, string $controllerClass = '' ): string {
 		return parent::GetPathToTwigTemplate( $settings, parent::class );
 	}
 
