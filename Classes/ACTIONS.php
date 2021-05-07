@@ -32,6 +32,9 @@ abstract class ACTIONS {
 		add_action( 'login_form', [ LOGIN_FORM::class, 'OnFields', ] );
 		add_filter( 'wp_authenticate_user', [ LOGIN_FORM::class, 'FilterVerify', ], 10, 3 );
 
+		add_action( 'get_header', [ PAGE::class, 'OnGetHeader', ] );
+		add_action( 'wp_footer', [ PAGE::class, 'OnWpFooter', ] );
+
 		//// actions
 
 		add_action( 'acf/init', [ OPTIONS::class, 'Setup', ] );
@@ -40,18 +43,9 @@ abstract class ACTIONS {
 
 		add_filter( 'mod_rewrite_rules', [ HTACCESS::class, 'Content' ] );
 
-		//// fbf (scripts, styles, ajax)
+		//// fbf
 
 		Fbf::Instance()->getBlocks()->loadAll();
-		add_action( 'wp_footer', function () {
-
-			$js  = Fbf::Instance()->getBlocks()->getUsedResources( '.min.js', true );
-			$css = Fbf::Instance()->getBlocks()->getUsedResources( '.min.css', true );
-
-			echo "\n<script>{$js}</script>\n";
-			echo "\n<style>{$css}</style>\n";
-
-		} );
 
 	}
 
