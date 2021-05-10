@@ -1,6 +1,6 @@
-$self: ".demo-block";
+$self: ".article";
 
-@mixin demo-block {
+@mixin article {
 
   padding: 10px;
 
@@ -15,13 +15,9 @@ $self: ".demo-block";
 
 }
 
-@mixin type--arrow {
-  @include demo-block;
-}
+@mixin theme--classic {
 
-@mixin type--circle {
-
-  @include demo-block;
+  @include article;
 
   color: orange;
 

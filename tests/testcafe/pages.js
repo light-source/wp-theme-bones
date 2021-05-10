@@ -12,7 +12,7 @@ const pages = [
         page: '/demo/',
         elements: [
             '.demo-page',
-            '.demo-block',
+            '.demo-page__first',
         ],
     },
 ];

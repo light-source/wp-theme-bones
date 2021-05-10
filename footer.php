@@ -5,10 +5,10 @@ namespace WpThemeBones;
 defined( 'ABSPATH' ) ||
 die( 'Constant missing' );
 
-use WpThemeBones\Blocks\Footer\Footer_C;
+use WpThemeBones\Blocks\Footer\FooterC;
 use WpThemeBones\Classes\Fbf;
 
-$footerController = new Footer_C();
+$footerController = new FooterC();
 
 $footerHtml = Fbf::Instance()->getBlocks()->renderBlock( $footerController );
 

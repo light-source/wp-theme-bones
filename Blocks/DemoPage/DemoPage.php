@@ -2,33 +2,20 @@
 
 namespace WpThemeBones\Blocks\DemoPage;
 
-defined( 'ABSPATH' ) ||
-die( 'Constant missing' );
+defined('ABSPATH') ||
+die('Constant missing');
 
-use LightSource\FrontBlocksFramework\MODEL;
-use WpThemeBones\Blocks\DemoBlock\DemoBlock;
-use WpThemeBones\Blocks\DemoBlock\Type\Arrow\DemoBlock_Type_Arrow;
+use LightSource\FrontBlocksFramework\Model;
+use WpThemeBones\Blocks\Article\Article;
 
-class DemoPage extends MODEL {
+class DemoPage extends Model
+{
 
-	protected DemoBlock_Type_Arrow $_demoBlockTypeArrow;
-	protected DemoBlock $_demoBlockTypeCircle;
+    protected Article $article;
 
-	public function __construct() {
-
-		parent::__construct();
-
-		$this->_demoBlockTypeArrow  = new DemoBlock_Type_Arrow();
-		$this->_demoBlockTypeCircle = new DemoBlock();
-
-	}
-
-	public function loadByDemo(): void {
-
-		parent::_load();
-		$this->_demoBlockTypeArrow->loadArrowTypeByDemo();
-		$this->_demoBlockTypeCircle->loadByDemo();
-
-	}
-
+    public function loadByDemo(): void
+    {
+        parent::load();
+        $this->article->loadByDemo();
+    }
 }

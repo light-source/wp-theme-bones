@@ -2,11 +2,12 @@
 
 namespace WpThemeBones\Blocks\Footer;
 
-defined( 'ABSPATH' ) ||
-die( 'Constant missing' );
+defined('ABSPATH') ||
+die('Constant missing');
 
-use LightSource\FrontBlocksFramework\MODEL;
+use LightSource\FrontBlocksFramework\Model;
 
-class Footer extends MODEL {
+class Footer extends Model
+{
 
 }

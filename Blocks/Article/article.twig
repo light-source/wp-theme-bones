@@ -1,0 +1,9 @@
+<div class="article{% if classes %} {{ classes|join(' ') }}{% endif %}">
+    <div class="article__wrapper">
+        <p>{{ title }}</p>
+        <p class="article__text">{{ text }}</p>
+
+        {% block footer %}{% endblock footer %}
+
+    </div>
+</div>

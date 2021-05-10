@@ -6,17 +6,17 @@ Template Post Type: page
 
 namespace WpThemeBones;
 
-defined( 'ABSPATH' ) ||
-die( 'Constant missing' );
+defined('ABSPATH') ||
+die('Constant missing');
 
-use WpThemeBones\Blocks\DemoPage\DemoPage_C;
+use WpThemeBones\Blocks\DemoPage\DemoPageC;
 use WpThemeBones\Classes\Fbf;
 
-$demoPageController = new DemoPage_C();
+$demoPageController = new DemoPageC();
 $demoPageController->getModel()->loadByDemo();
 
 get_header();
 
-Fbf::Instance()->getBlocks()->renderBlock( $demoPageController, [], true );
+Fbf::Instance()->getBlocks()->renderBlock($demoPageController, [], true);
 
 get_footer();

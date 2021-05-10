@@ -2,38 +2,33 @@
 
 namespace WpThemeBones\Blocks\Header;
 
-defined( 'ABSPATH' ) ||
-die( 'Constant missing' );
+defined('ABSPATH') ||
+die('Constant missing');
 
-use LightSource\FrontBlocksFramework\MODEL;
+use LightSource\FrontBlocksFramework\Model;
 
-class Header extends MODEL {
+class Header extends Model
+{
 
-	protected string $_htmlAttrs;
-	protected string $_charset;
-	protected string $_wpHeader;
-	protected array $_bodyClasses;
-	protected string $_wpBodyOpen;
+    protected string $htmlAttrs;
+    protected string $charset;
+    protected string $wpHeader;
+    protected array $bodyClasses;
+    protected string $wpBodyOpen;
 
-	public function __construct() {
-		parent::__construct();
-	}
+    public function loadByDefault()
+    {
+        parent::load();
+        ob_start();
+        wp_head();
+        $this->wpHeader = ob_get_clean();
 
-	public function loadByDefault() {
+        ob_start();
+        wp_body_open();
+        $this->wpBodyOpen = ob_get_clean();
 
-		parent::_load();
-		ob_start();
-		wp_head();
-		$this->_wpHeader = ob_get_clean();
-
-		ob_start();
-		wp_body_open();
-		$this->_wpBodyOpen = ob_get_clean();
-
-		$this->_htmlAttrs   = get_language_attributes();
-		$this->_charset     = get_bloginfo( 'charset' );
-		$this->_bodyClasses = get_body_class();
-
-	}
-
+        $this->htmlAttrs   = get_language_attributes();
+        $this->charset     = get_bloginfo('charset');
+        $this->bodyClasses = get_body_class();
+    }
 }
