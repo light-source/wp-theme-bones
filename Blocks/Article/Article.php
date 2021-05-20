@@ -5,9 +5,9 @@ namespace WpThemeBones\Blocks\Article;
 defined('ABSPATH') ||
 die('Constant missing');
 
-use LightSource\FrontBlocksFramework\Model;
+use WpThemeBones\Classes\Block;
 
-class Article extends Model
+class Article extends Block
 {
 
     protected string $title;

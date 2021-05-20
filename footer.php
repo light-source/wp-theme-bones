@@ -5,14 +5,14 @@ namespace WpThemeBones;
 defined( 'ABSPATH' ) ||
 die( 'Constant missing' );
 
-use WpThemeBones\Blocks\Footer\FooterC;
-use WpThemeBones\Classes\Fbf;
+use WpThemeBones\Blocks\Footer\Footer;
+use WpThemeBones\Classes\Fb;
 
-$footerController = new FooterC();
+$footer = new Footer();
 
-$footerHtml = Fbf::Instance()->getBlocks()->renderBlock( $footerController );
+$footerHtml = Fb::Instance()->getRenderer()->render( $footer );
 
-// for fbf (see PAGE.php), insert styles into the head (for render speed increase, and echo script (in the footer)
+// for fb (see PAGE.php), insert styles into the head (for render speed increase, and echo script (in the footer)
 wp_footer();
 
 echo $footerHtml;

@@ -1,0 +1,5 @@
+@use "../../Article";
+
+.article--theme--classic {
+  @include Article.theme--classic;
+}

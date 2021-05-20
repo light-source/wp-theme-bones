@@ -36,8 +36,8 @@ abstract class PAGE {
 		}
 
 		$pageContent = ob_get_clean();
-		$js          = Fbf::Instance()->getBlocks()->getUsedResources( '.min.js', true );
-		$css         = Fbf::Instance()->getBlocks()->getUsedResources( '.min.css', true );
+		$js          = Fb::Instance()->getRenderer()->getUsedResources( '.min.js', true );
+		$css         = Fb::Instance()->getRenderer()->getUsedResources( '.min.css', true );
 
 		// insert into the head to increase a render time,
 		// you can save into a separate file and include it instead of pasting into a page content

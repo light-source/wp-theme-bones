@@ -5,9 +5,9 @@ namespace WpThemeBones\Blocks\Header;
 defined('ABSPATH') ||
 die('Constant missing');
 
-use LightSource\FrontBlocksFramework\Model;
+use WpThemeBones\Classes\Block;
 
-class Header extends Model
+class Header extends Block
 {
 
     protected string $htmlAttrs;

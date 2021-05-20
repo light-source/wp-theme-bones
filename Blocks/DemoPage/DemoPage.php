@@ -5,17 +5,33 @@ namespace WpThemeBones\Blocks\DemoPage;
 defined('ABSPATH') ||
 die('Constant missing');
 
-use LightSource\FrontBlocksFramework\Model;
-use WpThemeBones\Blocks\Article\Article;
+use LightSource\FrontBlocks\Helper;
+use LightSource\FrontBlocks\Settings;
+use WpThemeBones\Blocks\Article\Theme\Classic\ArticleThemeClassic;
+use WpThemeBones\Blocks\BemBlock\BemBlock;
+use WpThemeBones\Classes\Block;
 
-class DemoPage extends Model
+class DemoPage extends Block
 {
 
-    protected Article $article;
+    protected ArticleThemeClassic $article;
+    protected BemBlock $bemBlock;
 
     public function loadByDemo(): void
     {
         parent::load();
         $this->article->loadByDemo();
+    }
+
+    public function getTemplateArgs(Settings $settings): array
+    {
+        return Helper::arrayMergeRecursive(
+            parent::getTemplateArgs($settings),
+            [
+                'article' => [
+                    'classes' => ['article--theme--classic',],
+                ],
+            ],
+        );
     }
 }

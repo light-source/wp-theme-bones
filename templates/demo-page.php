@@ -9,14 +9,14 @@ namespace WpThemeBones;
 defined('ABSPATH') ||
 die('Constant missing');
 
-use WpThemeBones\Blocks\DemoPage\DemoPageC;
-use WpThemeBones\Classes\Fbf;
+use WpThemeBones\Blocks\DemoPage\DemoPage;
+use WpThemeBones\Classes\Fb;
 
-$demoPageController = new DemoPageC();
-$demoPageController->getModel()->loadByDemo();
+$demoPage = new DemoPage();
+$demoPage->loadByDemo();
 
 get_header();
 
-Fbf::Instance()->getBlocks()->renderBlock($demoPageController, [], true);
+Fb::Instance()->getRenderer()->render($demoPage, [], true);
 
 get_footer();

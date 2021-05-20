@@ -5,9 +5,9 @@ namespace WpThemeBones\Blocks\Footer;
 defined('ABSPATH') ||
 die('Constant missing');
 
-use LightSource\FrontBlocksFramework\Model;
+use WpThemeBones\Classes\Block;
 
-class Footer extends Model
+class Footer extends Block
 {
 
 }

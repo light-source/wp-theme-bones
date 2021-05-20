@@ -7,7 +7,7 @@ namespace WpThemeBones\Classes;
 defined('ABSPATH') ||
 die('Constant is missing');
 
-abstract class Controller extends \LightSource\FrontBlocksFramework\Controller
+abstract class Block extends \LightSource\FrontBlocks\Block
 {
 
     const _AJAX_PREFIX = THEME::_NAME . '_block__';
@@ -41,9 +41,9 @@ abstract class Controller extends \LightSource\FrontBlocksFramework\Controller
     {
     }
 
-    public static function OnLoad(): void
+    public static function onLoad(): void
     {
-        parent::OnLoad();
+        parent::onLoad();
 
         // below used static for child support
 

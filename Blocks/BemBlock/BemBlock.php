@@ -5,9 +5,9 @@ namespace WpThemeBones\Blocks\BemBlock;
 defined('ABSPATH') ||
 die('Constant missing');
 
-use WpThemeBones\Classes\Controller;
+use WpThemeBones\Classes\Block;
 
-class BemBlockC extends Controller
+class BemBlock extends Block
 {
 
 }

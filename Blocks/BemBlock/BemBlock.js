@@ -13,7 +13,7 @@ import bemBlock from '../../node-js/node_modules/@lightsource/bem-block';
     };
 
     window.wpThemeBones = window.wpThemeBones || {};
-    window.wpThemeBones.bemBlock = bemBlock;
+    window.wpThemeBones.BemBlock = bemBlock;
 
 }());
 

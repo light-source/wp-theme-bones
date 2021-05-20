@@ -5,10 +5,10 @@ namespace WpThemeBones;
 defined( 'ABSPATH' ) ||
 die( 'Constant missing' );
 
-use WpThemeBones\Blocks\Header\HeaderC;
-use WpThemeBones\Classes\Fbf;
+use WpThemeBones\Blocks\Header\Header;
+use WpThemeBones\Classes\Fb;
 
-$headerController = new HeaderC();
-$headerController->getModel()->loadByDefault();
+$header = new Header();
+$header->loadByDefault();
 
-Fbf::Instance()->getBlocks()->renderBlock( $headerController, [], true );
+Fb::Instance()->getRenderer()->render( $header, [], true );

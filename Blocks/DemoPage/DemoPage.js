@@ -1,7 +1,7 @@
 (function () {
 
     window.wpThemeBones = window.wpThemeBones || {};
-    let bemBlock = window.wpThemeBones.bemBlock || null;
+    let bemBlock = window.wpThemeBones.BemBlock || null;
 
     if (!bemBlock) {
         throw new Error("Required dependency is missing");
