@@ -5,10 +5,10 @@
 
 ######## variables
 
-dbSiteName="theme" # for acceptance tests (because there is no config in git by default)
-dbTestName="test"       # for wpunit tests (to provide path to a test db)
-dbUser="root"
-dbPassword="LA9ZQ6/8#J/:Qt"
+dbSiteName="" # for acceptance tests (because there is no config in git by default)
+dbTestName=""       # for wpunit tests (to provide path to a test db)
+dbUser=""
+dbPassword=""
 dbHost="localhost"
 siteUrl="http://theme.loc"
 siteDomain="theme.loc"
