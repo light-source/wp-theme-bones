@@ -32,6 +32,8 @@ abstract class HTACCESS {
 
 		//// 2. lock non-public files
 
+        $addingContent .= "\nRedirectMatch 404 /\.git";
+
 		$addingContent .= "\n<FilesMatch '\.(" . self::PROTECTED__EXTENSIONS . ")$'>";
 		$addingContent .= "\nOrder allow,deny";
 		$addingContent .= "\nDeny from all";

@@ -5,10 +5,10 @@
 
 ######## variables
 
-dbSiteName="" # for acceptance tests (because there is no config in git by default)
-dbTestName=""       # for wpunit tests (to provide path to a test db)
-dbUser=""
-dbPassword=""
+dbSiteName="theme" # for acceptance tests (because there is no config in git by default)
+dbTestName="test"       # for wpunit tests (to provide path to a test db)
+dbUser="root"
+dbPassword="LA9ZQ6/8#J/:Qt"
 dbHost="localhost"
 siteUrl="http://theme.loc"
 siteDomain="theme.loc"
@@ -123,12 +123,12 @@ makeHtaccess                     # for acceptance tests (because there is no hta
 makeWpConfig                     # for acceptance tests (because there is no config in git by default)
 
 runCodeception "$@"
-if [[ $exitStatus -eq 0 ]]; then
-  runTestcafe
-fi
+#if [[ $exitStatus -eq 0 ]]; then
+  #runTestcafe
+#fi
 
 restoreCodeceptionEnvironmentConfig
 restoreHtaccess
-restoreWpConfig
+#restoreWpConfig
 
 exit $exitStatus
