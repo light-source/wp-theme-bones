@@ -6,10 +6,5 @@ declare global {
     }
 }
 
-(function () {
-
-    window.wpThemeBones = window.wpThemeBones || {};
-    window.wpThemeBones.catalyst = {controller, target};
-
-}());
-
+window.wpThemeBones = window.wpThemeBones || {};
+window.wpThemeBones.catalyst = {controller, target};
