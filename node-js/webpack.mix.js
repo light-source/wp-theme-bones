@@ -2,6 +2,10 @@ let laravelMix = require('laravel-mix');
 let glob = require('glob');
 let path = require("path");
 
+// fixme
+// 1. yarn build prod issue (CustomElementRegistry.define: 'y' is not a valid custom element name)
+// 2. remove overhead webpack/babel code and keep classes
+
 class Mix {
 
     constructor(blocksRelativePath) {
@@ -20,16 +24,24 @@ class Mix {
     _setupMix() {
 
         laravelMix.setPublicPath(this._blocksRelativePath);
+        laravelMix.webpackConfig({
+            resolve: {
+                modules: [
+                    __dirname + '/node_modules'
+                ],
+            },
+        });
 
     }
 
     _readFiles() {
 
         this._scssFiles = glob.sync(this._blocksAbsPath + "/**/*.scss");
-        this._jsFiles = glob.sync(this._blocksAbsPath + "/**/*.js").filter((jsFileName) => {
-            return (!jsFileName.match('\.min\.js') &&
-                !jsFileName.match('\.json'));
-        });
+        this._jsFiles = glob.sync(this._blocksAbsPath + "/**/*.ts");
+        /*   .filter((jsFileName) => {
+           return (!jsFileName.match('\.min\.js') &&
+               !jsFileName.match('\.json'));
+       });*/
 
     }
 
@@ -52,8 +64,8 @@ class Mix {
 
         this._jsFiles.forEach((absPathToJsFile, index) => {
 
-            let absPathToMinJsFile = absPathToJsFile.replace('.js', '.min.js');
-            laravelMix.js(absPathToJsFile, absPathToMinJsFile);
+            let absPathToMinJsFile = absPathToJsFile.replace('.ts', '.min.js');
+            laravelMix.ts(absPathToJsFile, absPathToMinJsFile);
 
         });
 

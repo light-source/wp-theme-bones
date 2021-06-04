@@ -1,5 +1,6 @@
 .idea
 Blocks/mix-manifest.json
+Blocks/*.min.js
 node-js/node_modules
 vendors/vendor
 vendors/composer.lock

@@ -8,14 +8,14 @@ die('Constant missing');
 use LightSource\FrontBlocks\Helper;
 use LightSource\FrontBlocks\Settings;
 use WpThemeBones\Blocks\Article\Theme\Classic\ArticleThemeClassic;
-use WpThemeBones\Blocks\BemBlock\BemBlock;
+use WpThemeBones\Blocks\Catalyst\Catalyst;
 use WpThemeBones\Classes\Block;
 
 class DemoPage extends Block
 {
 
     protected ArticleThemeClassic $article;
-    protected BemBlock $bemBlock;
+    protected Catalyst $catalyst;
 
     public function loadByDemo(): void
     {

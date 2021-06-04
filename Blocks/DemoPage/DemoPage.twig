@@ -1,9 +1,10 @@
-<div class="demo-page">
+<demo-page class="demo-page">
 
     <span>I'm DemoPage with the inner block</span>
 
-    <span class="demo-page__message"></span>
+    <span class="demo-page__message"
+    data-target="demo-page.message"></span>
 
     {{ _include(article,{classes:['demo-page__first',],}) }}
 
-</div>
+</demo-page>

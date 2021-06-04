@@ -1,13 +1,13 @@
 <?php
 
-namespace WpThemeBones\Blocks\BemBlock;
+namespace WpThemeBones\Blocks\Catalyst;
 
 defined('ABSPATH') ||
 die('Constant missing');
 
 use WpThemeBones\Classes\Block;
 
-class BemBlock extends Block
+class Catalyst extends Block
 {
 
 }
