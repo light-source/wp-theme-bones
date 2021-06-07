@@ -1,10 +1,9 @@
 let laravelMix = require('laravel-mix');
 let glob = require('glob');
 let path = require("path");
-
-// fixme
-// 1. yarn build prod issue (CustomElementRegistry.define: 'y' is not a valid custom element name)
-// 2. remove overhead webpack/babel code and keep classes
+const TerserPlugin = require('terser-webpack-plugin');
+// todo
+//  remove overhead webpack/babel code
 
 class Mix {
 
@@ -29,6 +28,16 @@ class Mix {
                 modules: [
                     __dirname + '/node_modules'
                 ],
+            },
+        });
+
+        laravelMix.options({
+            terser: {
+                terserOptions: {
+                    // class names is required for Catalyst
+                    keep_classnames: true,
+                    keep_fnames: true,
+                },
             },
         });
 

@@ -19,5 +19,9 @@
     "build-dev": "npx mix",
     "watch-prod": "cross-env NODE_ENV=production npx mix watch",
     "watch-dev": "npx mix watch"
-  }
+  },
+  "browserslist": [
+    "chrome 60",
+    "firefox 55"
+  ]
 }
