@@ -1,7 +1,7 @@
 let laravelMix = require('laravel-mix');
 let glob = require('glob');
 let path = require("path");
-const TerserPlugin = require('terser-webpack-plugin');
+
 // todo
 //  remove overhead webpack/babel code
 

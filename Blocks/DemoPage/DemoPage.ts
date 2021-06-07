@@ -1,9 +1,6 @@
-window.wpThemeBones = window.wpThemeBones || {};
-let catalyst = window.wpThemeBones.catalyst || null;
+import dependency from "../Dependency/dependency";
 
-if (!catalyst) {
-    throw new Error("Required dependency is missing");
-}
+const catalyst = dependency.get('catalyst');
 
 @catalyst.controller
 class DemoPage extends HTMLElement {
