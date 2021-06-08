@@ -4,11 +4,13 @@ const catalyst = window._catalyst;
 dependency.exists(catalyst, "catalyst");
 
 @catalyst.controller
-class DemoPageElement extends HTMLElement {
+class DemoPageElement extends catalyst.class {
 
     @catalyst.target message: HTMLElement;
 
-    connectedCallback(): void {
+    onConnected() {
+        super.onConnected();
+
         this.message.innerText = "(dynamic js string - block's code has an access to an external dependency)";
     }
 
