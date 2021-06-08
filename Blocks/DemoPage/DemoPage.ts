@@ -4,7 +4,7 @@ const catalyst = window._catalyst;
 dependency.exists(catalyst, "catalyst");
 
 @catalyst.controller
-class DemoPage extends HTMLElement {
+class DemoPageElement extends HTMLElement {
 
     @catalyst.target message: HTMLElement;
 

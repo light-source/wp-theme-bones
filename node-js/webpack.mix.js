@@ -35,10 +35,20 @@ class Mix {
             terser: {
                 terserOptions: {
                     // class names is required for Catalyst
-                    keep_classnames: true,
-                    keep_fnames: true,
+                    keep_classnames: /.*Element/,
+                    keep_fnames: /.*Element/,
                 },
             },
+        });
+
+        // makes babel is dependent on package.json browserslist, so will skip additional polyfills
+        laravelMix.babelConfig({
+            "presets": [
+                [
+                    "@babel/preset-env",
+                    {}
+                ]
+            ]
         });
 
     }

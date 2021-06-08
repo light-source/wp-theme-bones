@@ -9,13 +9,15 @@ use LightSource\FrontBlocks\Helper;
 use LightSource\FrontBlocks\Settings;
 use WpThemeBones\Blocks\Article\Theme\Classic\ArticleThemeClassic;
 use WpThemeBones\Blocks\Catalyst\Catalyst;
+use WpThemeBones\Blocks\Common\Common;
 use WpThemeBones\Classes\Block;
 
 class DemoPage extends Block
 {
 
-    protected ArticleThemeClassic $article;
+    protected Common $common;
     protected Catalyst $catalyst;
+    protected ArticleThemeClassic $article;
 
     public function loadByDemo(): void
     {
