@@ -1,10 +1,12 @@
 import {controller, target} from '@github/catalyst';
-import dependency from "../Dependency/dependency";
 
 declare global {
     interface Window {
-        wpThemeBones: any;
+        _catalyst: {
+            controller: any;
+            target: any;
+        },
     }
 }
 
-dependency.set('catalyst', {controller, target});
+window._catalyst = {controller, target};

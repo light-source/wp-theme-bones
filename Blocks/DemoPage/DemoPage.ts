@@ -1,6 +1,7 @@
-import dependency from "../Dependency/dependency";
+import dependency from "../Dependency/Dependency";
 
-const catalyst = dependency.get('catalyst');
+const catalyst = window._catalyst;
+dependency.exists(catalyst, "catalyst");
 
 @catalyst.controller
 class DemoPage extends HTMLElement {
