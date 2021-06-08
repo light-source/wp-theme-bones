@@ -2,9 +2,6 @@ let laravelMix = require('laravel-mix');
 let glob = require('glob');
 let path = require("path");
 
-// todo
-//  remove overhead webpack/babel code
-
 class Mix {
 
     constructor(blocksRelativePath) {
