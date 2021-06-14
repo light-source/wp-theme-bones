@@ -4,9 +4,6 @@ declare(strict_types=1);
 
 class SecurityCest
 {
-
-    //////// constants
-
     const _THEME = '/wp-content/themes/wp-theme-bones';
 
     const THEME__VIEW_FOLDER = self::_THEME . '/vendors';
@@ -24,45 +21,41 @@ class SecurityCest
     const LOGIN_PAGE = '/wp-login.php';
     const USER_LOGIN = 'maxim';
 
-    //////// static methods
-
-    private static function _ForbiddenUrl(string $url, AcceptanceTester $I)
+    private static function forbiddenUrl(string $url, AcceptanceTester $I)
     {
         $I->amOnPage($url);
         $I->seeResponseCodeIs(403);
     }
 
-    private static function _NotFoundUrl(string $url, AcceptanceTester $I)
+    private static function notFoundUrl(string $url, AcceptanceTester $I)
     {
         $I->amOnPage($url);
         $I->seeResponseCodeIs(404);
     }
 
-    //////// methods
-
     public function htaccessForbiddenDirectoryBrowsing(AcceptanceTester $I)
     {
-        self::_ForbiddenUrl(self::THEME__VIEW_FOLDER, $I);
+        self::forbiddenUrl(self::THEME__VIEW_FOLDER, $I);
     }
 
     public function htaccessForbiddenFileExtensions(AcceptanceTester $I)
     {
-        self::_ForbiddenUrl(self::EXT__HTACCESS, $I);
-        self::_ForbiddenUrl(self::THEME__EXT__JSON, $I);
-        self::_ForbiddenUrl(self::THEME__EXT__LOCK, $I);
-        self::_ForbiddenUrl(self::THEME__EXT__TWIG, $I);
-        self::_ForbiddenUrl(self::THEME__EXT__SCSS, $I);
-        self::_ForbiddenUrl(self::THEME__EXT__SH, $I);
+        self::forbiddenUrl(self::EXT__HTACCESS, $I);
+        self::forbiddenUrl(self::THEME__EXT__JSON, $I);
+        self::forbiddenUrl(self::THEME__EXT__LOCK, $I);
+        self::forbiddenUrl(self::THEME__EXT__TWIG, $I);
+        self::forbiddenUrl(self::THEME__EXT__SCSS, $I);
+        self::forbiddenUrl(self::THEME__EXT__SH, $I);
     }
 
     public function htaccessForbiddenFiles(AcceptanceTester $I)
     {
-        self::_ForbiddenUrl(self::THEME__FILE__README, $I);
+        self::forbiddenUrl(self::THEME__FILE__README, $I);
     }
 
     public function htaccessNotFoundFiles(AcceptanceTester $I)
     {
-        self::_NotFoundUrl(self::THEME__FILE__GIT, $I);
+        self::notFoundUrl(self::THEME__FILE__GIT, $I);
     }
 
     public function loginCaptcha(AcceptanceTester $I)
@@ -74,5 +67,4 @@ class SecurityCest
 
         $I->see('Security field is missing', '#login_error');
     }
-
 }

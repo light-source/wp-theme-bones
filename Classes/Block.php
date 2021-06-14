@@ -10,7 +10,7 @@ die('Constant is missing');
 abstract class Block extends \LightSource\FrontBlocks\Block
 {
 
-    const _AJAX_PREFIX = THEME::_NAME . '_block__';
+    const _AJAX_PREFIX = Theme::_NAME . '_block__';
 
     protected static function _IsSupportAjax(): bool
     {

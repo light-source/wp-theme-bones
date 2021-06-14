@@ -7,17 +7,15 @@ namespace WpThemeBones\Classes;
 defined( 'ABSPATH' ) ||
 die( 'Constant is missing' );
 
-abstract class PAGE {
+abstract class Page {
 
-	final public static function IsContainsBlocks(): bool {
+	final public static function isContainsBlocks(): bool {
 		return ! is_admin();
 	}
 
-	//// hooks
+	final public static function onGetHeader() {
 
-	final public static function OnGetHeader() {
-
-		if ( ! self::IsContainsBlocks() ) {
+		if ( ! self::isContainsBlocks() ) {
 			return;
 		}
 
@@ -25,13 +23,13 @@ abstract class PAGE {
 
 	}
 
-	final public static function OnWpFooter(): void {
+	final public static function onWpFooter(): void {
 
 		// disable default wp blocks styles
 		// (because it can break something, like p:empty:content='' breaks icon-downarrow)
 		wp_dequeue_style( 'wp-block-library' );
 
-		if ( ! self::IsContainsBlocks() ) {
+		if ( ! self::isContainsBlocks() ) {
 			return;
 		}
 
@@ -47,5 +45,4 @@ abstract class PAGE {
 		echo "\n<script>{$js}</script>\n";
 
 	}
-
 }

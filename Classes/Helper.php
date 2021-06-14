@@ -7,11 +7,9 @@ namespace WpThemeBones\Classes;
 defined( 'ABSPATH' ) ||
 die( 'Constant is missing' );
 
-abstract class HELPER {
+abstract class Helper {
 
-	//////// static methods
-
-	final public static function GetCurrentHost(): string {
+	final public static function getCurrentHost(): string {
 		return ( parse_url( site_url(), PHP_URL_HOST ) );
 	}
 
@@ -22,7 +20,7 @@ abstract class HELPER {
 	 *
 	 * @return string|false
 	 */
-	final public static function CUrl( string $url, bool $isPost, array $fields = [] ) {
+	final public static function cUrl( string $url, bool $isPost, array $fields = [] ) {
 
 		$response = false;
 
@@ -55,5 +53,4 @@ abstract class HELPER {
 
 		return $response;
 	}
-
 }

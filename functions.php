@@ -6,7 +6,7 @@ if ( ! defined( 'WP_THEME_BONES' ) ) {
 }
 
 use LightSource\Log\LOG;
-use WpThemeBones\Classes\ACTIONS;
+use WpThemeBones\Classes\Actions;
 
 include_once __DIR__ . '/vendors/vendor/autoload.php';
 
@@ -27,4 +27,4 @@ LOG::$PathToLogDir = LOGS_FOLDER;
 
 ////
 
-ACTIONS::SetHooks();
+Actions::setHooks();
