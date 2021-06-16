@@ -18,11 +18,11 @@ fi
 
 ######## variables
 
-dbHost=""      # "mysql"
-dbSiteName="" # "angama"
+dbHost=""
+dbSiteName=""
 dbTestName=""
 dbUser=""
-dbPassword="" # "codeception"
+dbPassword=""
 siteUrl="http://theme.loc"
 siteDomain="theme.loc"
 
@@ -201,7 +201,6 @@ cd "$parentPath" || exit
 _makeCodeceptionEnvironmentConfig "$relativePathToCodeception" "$parentPath" "$dbHost" "$dbTestName" "$dbUser" "$dbPassword" "$siteUrl" "$siteDomain"
 _makeHtaccess "$relativePathToWpRoot" "$parentPath"
 _makeWpConfig "$relativePathToWpRoot" "$parentPath" "$dbHost" "$dbSiteName" "$dbUser" "$dbPassword"
-_mvWrongPlugins "$relativePathToWpRoot" "$parentPath"
 
 if [ $exitStatus -eq 0 ] && { [ "all" == "$testType" ] || [ "codeception" == "$testType" ]; }; then
 
@@ -220,6 +219,5 @@ fi
 _restoreCodeceptionEnvironmentConfig "$relativePathToCodeception" "$parentPath"
 _restoreHtaccess "$relativePathToWpRoot" "$parentPath"
 _restoreWpConfig "$relativePathToWpRoot" "$parentPath"
-_restoreWrongPlugins "$relativePathToWpRoot" "$parentPath"
 
 exit "$exitStatus"
