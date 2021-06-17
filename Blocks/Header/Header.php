@@ -2,8 +2,8 @@
 
 namespace WpThemeBones\Blocks\Header;
 
-defined('ABSPATH') ||
-die('Constant missing');
+defined('WP_THEME_BONES') ||
+die('Required constant is missing');
 
 use WpThemeBones\Classes\Block;
 

@@ -2,8 +2,8 @@
 
 namespace WpThemeBones;
 
-defined( 'ABSPATH' ) ||
-die( 'Constant missing' );
+defined( 'WP_THEME_BONES' ) ||
+die( 'Required constant is missing' );
 
 use WpThemeBones\Blocks\Footer\Footer;
 use WpThemeBones\Classes\Fb;

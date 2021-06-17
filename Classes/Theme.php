@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace WpThemeBones\Classes;
 
-defined('ABSPATH') ||
-die('Constant missing');
+defined('WP_THEME_BONES') ||
+die('Required constant is missing');
 
 use LightSource\Log\LOG;
 use WP_Error;

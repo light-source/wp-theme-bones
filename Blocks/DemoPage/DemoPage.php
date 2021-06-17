@@ -2,8 +2,8 @@
 
 namespace WpThemeBones\Blocks\DemoPage;
 
-defined('ABSPATH') ||
-die('Constant missing');
+defined('WP_THEME_BONES') ||
+die('Required constant is missing');
 
 use LightSource\FrontBlocks\Helper;
 use LightSource\FrontBlocks\Settings;

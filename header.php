@@ -3,7 +3,7 @@
 namespace WpThemeBones;
 
 defined( 'ABSPATH' ) ||
-die( 'Constant missing' );
+die( 'Required constant is missing' );
 
 use WpThemeBones\Blocks\Header\Header;
 use WpThemeBones\Classes\Fb;

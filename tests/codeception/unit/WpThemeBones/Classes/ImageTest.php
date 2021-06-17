@@ -6,13 +6,13 @@ namespace WpThemeBones\Classes;
 
 use Codeception\Test\Unit;
 
-class ThumbnailsTest extends Unit {
+class ImageTest extends Unit {
 
 	//////// methods
 
 	public function testImageSizes() {
 
-		$sizes = Thumbnails::filterImageSizes( [
+		$sizes = Image::filterImageSizes( [
 			'1536x1536',
 			'2048x2048',
 			'medium_large',

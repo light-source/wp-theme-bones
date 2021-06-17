@@ -7,7 +7,7 @@ Template Post Type: page
 namespace WpThemeBones;
 
 defined('ABSPATH') ||
-die('Constant missing');
+die('Required constant is missing');
 
 get_header();
 

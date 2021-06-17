@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace WpThemeBones\Classes;
 
-defined('ABSPATH') ||
-die('Constant missing');
+defined('WP_THEME_BONES') ||
+die('Required constant is missing');
 
 use WpThemeBones\Classes\{
     Acf\Main\Options,
@@ -19,9 +19,9 @@ abstract class Actions
     {
         //// functional groups
 
-        add_action('after_switch_theme', [Thumbnails::class, 'setupDefaults',]);
-        add_filter('intermediate_image_sizes', [Thumbnails::class, 'filterImageSizes',]);
-        add_filter('big_image_size_threshold', [Thumbnails::class, 'imageSizeThreshold',], 10, 4);
+        add_action('after_switch_theme', [Image::class, 'setupDefaults',]);
+        add_filter('intermediate_image_sizes', [Image::class, 'filterImageSizes',]);
+        add_filter('big_image_size_threshold', [Image::class, 'filterImageSizeThreshold',], 10, 4);
 
         add_action('after_setup_theme', [Theme::class, 'setupSupports',]);
         add_action('wp_mail_failed', [Theme::class, 'onMailFail',]);
