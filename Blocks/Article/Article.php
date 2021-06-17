@@ -20,4 +20,10 @@ class Article extends Block
         $this->title = "I'm Article";
         $this->text  = 'Some description';
     }
+
+    public function loadByGutenberg(int $postId, string $prefix = '')
+    {
+        parent::loadByGutenberg($postId, $prefix);
+        $this->loadByDemo();
+    }
 }

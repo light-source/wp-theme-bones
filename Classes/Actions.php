@@ -25,6 +25,7 @@ abstract class Actions
 
         add_action('after_setup_theme', [Theme::class, 'setupSupports',]);
         add_action('wp_mail_failed', [Theme::class, 'onMailFail',]);
+        add_filter('block_categories', [Theme::class, 'filterGutenbergCategories',], 10, 2);
 
         add_action('login_enqueue_scripts', [LoginForm::class, 'onResources',]);
         add_action('login_form', [LoginForm::class, 'onFields',]);

@@ -9,13 +9,14 @@ die('Constant missing');
 
 use LightSource\Log\LOG;
 use WP_Error;
+use WP_Post;
 
 abstract class Theme
 {
     const NAME = 'WpThemeBones';
     const _NAME = 'wp-theme-bones';
     const FOLDER__BLOCKS = 'Blocks';
-    const FOLDER__ASSETS_PAGES = 'assets/pages';
+    const GUTENBERG_CATEGORY__BLOCKS = 'wp-theme-blocks_blocks';
 
     public static function getUrl(string $target, string $folder = ''): string
     {
@@ -42,5 +43,17 @@ abstract class Theme
             '$wpError' => $wpError,
         ];
         LOG::Write(LOG::WARNING, $logMessage, $logDebugArgs);
+    }
+
+    public static function filterGutenbergCategories(array $categories, WP_Post $post): array
+    {
+        $myCategories = [
+            [
+                'slug'  => self::GUTENBERG_CATEGORY__BLOCKS,
+                'title' => 'WpThemeBones blocks',
+            ],
+        ];
+
+        return array_merge($categories, $myCategories);
     }
 }

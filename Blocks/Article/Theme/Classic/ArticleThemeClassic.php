@@ -10,4 +10,8 @@ use WpThemeBones\Blocks\Article\Article;
 class ArticleThemeClassic extends Article
 {
 
+    public static function isSupportGutenberg(): bool
+    {
+        return true;
+    }
 }
