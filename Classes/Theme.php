@@ -16,7 +16,7 @@ abstract class Theme
     const NAME = 'WpThemeBones';
     const _NAME = 'wp-theme-bones';
     const FOLDER__BLOCKS = 'Blocks';
-    const GUTENBERG_CATEGORY__BLOCKS = 'wp-theme-blocks_blocks';
+    const GUTENBERG_CATEGORY__BLOCKS = self::_NAME . '_blocks';
 
     public static function getUrl(string $target, string $folder = ''): string
     {
@@ -50,7 +50,7 @@ abstract class Theme
         $myCategories = [
             [
                 'slug'  => self::GUTENBERG_CATEGORY__BLOCKS,
-                'title' => 'WpThemeBones blocks',
+                'title' => self::NAME . ' blocks',
             ],
         ];
 
